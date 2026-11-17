@@ -286,7 +286,7 @@ svg.chart text{font-family:inherit}
    Storage: IndexedDB (primary) + localStorage mirror (fallback / crash safety).
    Legacy v1 data (localStorage "hybridAthleteLogV1") is copied, never deleted.
    ========================================================================= */
-const APP_VERSION='2.1.0', SCHEMA=2;
+const APP_VERSION='2.1.1', SCHEMA=2;
 const DB_NAME='hybrid-athlete', MIRROR='hybridAthleteV2Mirror', LEGACY='hybridAthleteLogV1', LEGACY_DRAFT='hybridAthleteDraftV1';
 
 /* ---------- helpers ---------- */
@@ -910,7 +910,7 @@ function viewDash(){const today=localDate(),days=weekView(),td=days.find(d=>d.to
  const resume=S.draft&&!td.items.some(it=>it.st==='active')?resumeCard():'';
  const R=34,C=2*Math.PI*R,pct=sc.planned?Math.min(1,sc.done/sc.planned):0;
  const bd=[['Strength',...sc.cat.strength],['Conditioning',...sc.cat.cond],['Surf',...sc.cat.surf],['Soccer',...sc.cat.soccer]].filter(x=>x[2]>0);
- return `<div class="eyebrow">${esc(dTxt)}</div><h1>Today</h1>${resume}${todaySection(td)}
+ return `<div class="row-b"><div class="eyebrow">${esc(dTxt)}</div><span class="pill" title="App version">v${APP_VERSION}</span></div><h1>Today</h1>${resume}${todaySection(td)}
  <section class="card"><div class="row-b" style="margin-bottom:12px"><h3>This week</h3><button class="btn sm ghost" data-a="tab" data-t="week">Plan week</button></div>
  ${strip(days)}
  <div class="legend"><span><i style="background:var(--ac)"></i>Done</span><span><i style="background:var(--warm)"></i>In progress</span><span><i style="border:2px solid var(--tx)"></i>Today</span><span><i style="border:2px dashed var(--dim)"></i>Optional / rest</span></div></section>
