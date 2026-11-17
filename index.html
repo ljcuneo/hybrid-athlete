@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" href="icon-180.png">
 <title>Hybrid Athlete</title>
 <style>
-:root{--bg:#0a0e11;--s1:#11171c;--s2:#172027;--s3:#212c34;--line:#25313a;--tx:#ecf1f4;--mu:#8f9da8;--dim:#5d6a74;--ac:#7ee0c3;--ac2:#3d9c80;--ink:#04231a;--warm:#ffb257;--warm-ink:#2b1700;--bad:#ff8080;--blue:#73b9ff;--violet:#b8a2ff;--lime:#c4e86b;--r:18px;color-scheme:dark}
+:root{--bg:#0a0e11;--s1:#11171c;--s2:#172027;--s3:#212c34;--line:#25313a;--tx:#ecf1f4;--mu:#8f9da8;--dim:#5d6a74;--ac:#7ee0c3;--ac2:#3d9c80;--ink:#04231a;--warm:#ffb257;--warm-ink:#2b1700;--bad:#ff8080;--blue:#73b9ff;--violet:#b8a2ff;--lime:#c4e86b;--pink:#ff9ecf;--r:18px;color-scheme:dark}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
@@ -53,7 +53,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--ac);outline-offs
 .pill.bad{background:rgba(255,128,128,.13);color:var(--bad)}
 /* nav */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(10,14,17,.88);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
-nav .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+nav .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
 nav button{background:none;border:0;color:var(--dim);font-family:inherit;font-size:11px;font-weight:650;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;cursor:pointer;position:relative}
 nav button.on{color:var(--ac)}
 nav svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -202,11 +202,11 @@ details.cue summary{cursor:pointer;color:var(--mu);font-weight:650;min-height:32
 .em-now span{font-size:18px;color:var(--mu);font-weight:600}
 .em-next{margin:10px 0 14px;font-size:14px;color:var(--mu)}
 .em-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.emg{display:grid;grid-template-columns:minmax(0,1fr) repeat(var(--cols),38px);gap:6px;align-items:center;margin-top:10px}
-.emg-h{font-size:11px;font-weight:700;color:var(--dim);text-align:center}
-.emg-n{font-size:14px;font-weight:600;line-height:1.2;min-width:0}.emg-n small{display:block;color:var(--mu);font-weight:500;font-size:12px}
-.emg-c{width:38px;height:38px;border-radius:10px;border:2px solid var(--line);background:var(--s2);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
-.emg-c.on{background:var(--ac);border-color:var(--ac)}
+.emg{display:grid;gap:12px;margin-top:10px}
+.emg-n{font-size:14px;font-weight:600;line-height:1.25;margin-bottom:6px}.emg-n small{color:var(--mu);font-weight:500;font-size:12px;margin-left:4px}
+.emg-cells{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,44px));gap:6px}
+.emg-c{aspect-ratio:1/1;min-height:30px;border-radius:10px;border:2px solid var(--line);background:var(--s2);color:var(--dim);display:grid;place-items:center;cursor:pointer;padding:0;font-family:inherit;font-size:12px;font-weight:700}
+.emg-c.on{background:var(--ac);border-color:var(--ac);color:var(--ink)}
 .emg-c.cur{border-color:var(--warm);box-shadow:0 0 0 3px rgba(255,178,87,.2)}
 .loadrow{display:grid;grid-template-columns:1fr 110px;gap:10px;align-items:center;margin-top:8px}
 /* history */
@@ -241,6 +241,33 @@ svg.chart text{font-family:inherit}
 .prs .kv b{font-variant-numeric:tabular-nums}
 .empty{color:var(--mu);text-align:center;padding:22px 8px;font-size:15px}
 .bwrow{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto;gap:8px}.bwrow input{padding:10px 8px}
+/* sheet overflow */
+.sheet-card{max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sheet-card .btn{height:auto;padding:10px 16px;white-space:normal;line-height:1.3}
+/* schedule */
+.wk-nav{display:flex;align-items:center;gap:10px;margin:0 0 12px}.wk-nav .mid{flex:1;text-align:center}.wk-nav .mid b{display:block;font-size:18px}
+.daycard{background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin:0 0 10px;scroll-margin-top:12px}
+.daycard.today{border-color:rgba(126,224,195,.45)}
+.dc-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 2px 8px}.dc-h b{font-size:16px}
+.daycard .day-row{background:var(--s2);margin-bottom:6px;min-height:58px}
+.daycard .day-row:last-child{margin-bottom:0}
+.day-row.st-skipped{opacity:.55}.day-row.st-skipped .dr-t b{text-decoration:line-through}
+.day-row.st-past .dr-s{color:var(--dim)}
+.day-row.opt .dr-ic{border-style:dashed}
+.day-row.extra .dr-s{color:var(--ac)}
+.lib-row .go{color:var(--dim);display:grid;place-items:center;flex:none}.lib-row .go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}.tags .pill{font-size:11px;padding:2px 7px}
+.sub-h{font-size:13px;font-weight:650;color:var(--mu);margin:4px 2px 8px}
+.caution{font-size:14px;color:var(--warm);background:rgba(255,178,87,.08);border-radius:12px;padding:8px 12px;margin:10px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.lblrow{font-size:11px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.strip .st-past .c{opacity:.5}
+.sq i.on.em{background:var(--warm)}.sq i.on.rn{background:var(--pink)}
+.hero .btn-row .btn{min-height:42px;font-size:14px}
+.opts .opt small{display:block;margin-top:2px}
+.mini li b{white-space:normal;text-align:right;max-width:58%}
+.breakdown{grid-template-columns:1fr;gap:4px}
 @media (min-width:420px){.tiles{grid-template-columns:1fr 1fr 1fr}}
 </style>
 </head>
@@ -254,12 +281,12 @@ svg.chart text{font-family:inherit}
 <script>
 'use strict';
 /* =========================================================================
-   Hybrid Athlete Tracker · v2
+   Hybrid Athlete Tracker · v2.1 — flexible schedule, original EMOMs, running
    Single-file, no build step, GitHub Pages compatible.
    Storage: IndexedDB (primary) + localStorage mirror (fallback / crash safety).
    Legacy v1 data (localStorage "hybridAthleteLogV1") is copied, never deleted.
    ========================================================================= */
-const APP_VERSION='2.0.0', SCHEMA=2;
+const APP_VERSION='2.1.0', SCHEMA=2;
 const DB_NAME='hybrid-athlete', MIRROR='hybridAthleteV2Mirror', LEGACY='hybridAthleteLogV1', LEGACY_DRAFT='hybridAthleteDraftV1';
 
 /* ---------- helpers ---------- */
@@ -311,7 +338,23 @@ const ALIAS={lateralraises:'dumbbelllateralraises',calfraises:'standingcalfraise
 const aliasKey=n=>{const k=norm(n);return ALIAS[k]||k};
 const kindFor=k=>KNOWN[k]?.kind||(/pullup|chinup|dip|legraise|hollow|lsit|plank|abwheel|pushup/.test(k)?'bw':'load');
 
+/* EMOMs --------------------------------------------------------------------
+   E1–E4 are the four ORIGINAL EMOMs, restored exactly as written in the v1 app
+   (stations, reps, loads, round counts, finishers and instructions — see git history).
+   A, B, C and Light (L) were introduced in v2.0; they are kept so nothing already logged is orphaned. */
+const EMOM_RULES_ORIG='Before: dead hang 2 × 30–45 sec; 3 slow toes-to-bar before each block. Moderate KB = 20–24 kg, heavy KB = 28–32 kg. Seated overhead KB work only. Skip a missed station and rejoin the next minute; stop a set if form breaks.';
+const EMOM_HOWTO_ORIG='Each exercise is one station; each row is one round. Work at the start of each minute and aim for 15–25 sec rest.';
+const EMOM_RULES_V2='Warm up 5 min first. Aim for 15–25 s rest each minute — under 10 s, drop a rep. Miss a minute? Skip that station and rejoin the next one. Form breaks = the set ends.';
+const ST=(name,target,unit,extra)=>Object.assign({name,target},unit?{load:true,unit}:{},extra||{});
 const EMOMS={
+ E1:{id:'E1',n:1,original:true,name:'EMOM 1 — Upper Strength',short:'Upper Strength',rounds:8,focus:'Pull-ups +30–35 lb, dips +45–55 lb',finisher:'Farmer carry, 2 heavy KBs, 3 × 40 m',st:[
+  ST('Weighted pull-up','3 (+30–35 lb)','+lb'),ST('Weighted dip','4 (+45–55 lb)','+lb'),ST('Heavy KB swing','12 (28–32 kg)','kg'),ST('Hollow body hold','30 sec')]},
+ E2:{id:'E2',n:2,original:true,name:'EMOM 2 — Legs + Hinge + Core',short:'Legs + Hinge + Core',rounds:6,legs:true,finisher:'Suitcase carry, heavy KB, 2 × 30 m per side',st:[
+  ST('Double moderate KB front squat','6 (20–24 kg each)','kg'),ST('Heavy KB swing','15 (28–32 kg)','kg'),ST('Moderate KB single-leg RDL','5 / side','kg'),ST('Dip bar L-sit','20 sec'),ST('Moderate KB lateral lunge','5 / side','kg')]},
+ E3:{id:'E3',n:3,original:true,name:'EMOM 3 — Upper Volume + Grip',short:'Upper Volume + Grip',rounds:8,focus:'Odd rounds: towel grip pull-ups × 4–5',finisher:'Chin-up max set, 1 × AMRAP',st:[
+  ST('BW pull-up (odd rounds towel grip)','6–8; odd 4–5',null,{odd:'Odd round · towel grip · 4–5',even:'6–8'}),ST('BW dip','10–12'),ST('Seated moderate KB press','5 / side','kg'),ST('KB bottoms-up hold','20 sec / side','kg')]},
+ E4:{id:'E4',n:4,original:true,name:'EMOM 4 — Power + Surf',short:'Power + Surf',rounds:4,finisher:null,st:[
+  ST('KB clean → front squat','3 clean + 3 squat; alternate sides','kg'),ST('Explosive chest-to-bar pull-up','4'),ST('Burpee-to-pop-up','5'),ST('Moderate KB halo','5 / direction','kg'),ST('Half-kneeling KB chop','8 / side','kg'),ST('Hanging knee-to-elbow twist','6 / side')]},
  A:{id:'A',name:'EMOM A — Strength Endurance',short:'Strength Endurance',rounds:5,st:[
   {name:'Push-ups',target:'10 reps'},{name:'Kettlebell Swings',target:'12 reps',load:true},{name:'Ring Rows',target:'10 reps'},{name:'Plank',target:'30 sec'}]},
  B:{id:'B',name:'EMOM B — Athletic Conditioning',short:'Athletic Conditioning',rounds:5,st:[
@@ -320,26 +363,41 @@ const EMOMS={
   {name:'Push-ups',target:'8–12 reps'},{name:'Dumbbell Rows',target:'10 (5/side)',load:true},{name:'Hollow Hold',target:'30 sec'},{name:'Band Pull-aparts',target:'12 reps'}]},
  L:{id:'L',name:'Light EMOM — Upper Body + Core',short:'Light (optional)',rounds:3,optional:true,st:[
   {name:'Push-ups',target:'8 easy reps'},{name:'Band Pull-aparts',target:'12 reps'},{name:'Dead Bug',target:'6/side'},{name:'Bird Dog',target:'5/side'}]}};
-const EMOM_ORDER=['A','B','C'];
-const suggestedEmom=(ds=localDate())=>EMOM_ORDER[((weekIdx(ds)%3)+3)%3];
+const ORIG_EMOMS=['E1','E2','E3','E4'],OTHER_EMOMS=['A','B','C','L'];
+const emN=e=>e.rounds*e.st.length;
+const unitTxt=u=>String(u||'lb').replace('+','');
 
-const WEEK=[
- {day:'Mon',kind:'strength',ref:'A',title:'Upper Body Strength A',dur:'45–60 min',req:true},
- {day:'Tue',kind:'strength',ref:'B',title:'Lower Body Strength B',dur:'50–60 min',req:true},
- {day:'Wed',kind:'emom',title:'Rotating EMOM',dur:'20 min',req:true},
- {day:'Thu',kind:'strength',ref:'C',title:'Full Body Strength C',dur:'45–60 min',req:true},
- {day:'Fri',kind:'surf',title:'Surf + Mobility',dur:'45–90 min',req:true,flex:true},
- {day:'Sat',kind:'recovery',title:'Recovery',dur:'10–20 min · optional',req:false},
- {day:'Sun',kind:'soccer',title:'Soccer',dur:'60–90 min',req:true}];
+/* Running. No running prescriptions existed in the original notes, so these are configurable templates. */
+const RUNS={
+ easy:{id:'easy',name:'Easy Zone 2 Run',short:'Easy Zone 2 Run',sub:'Conversational pace · your duration or distance',desc:'Zone 2: keep it conversational — you should be able to talk in full sentences. Set your own duration or distance.'},
+ tempo:{id:'tempo',name:'Tempo / Interval Run',short:'Tempo / Intervals',sub:'Warm-up · work · recovery · cool-down',legs:true,desc:'Structured quality run. Pick a saved interval structure or build your own.'},
+ long:{id:'long',name:'Long Run',short:'Long Run',sub:'Easy aerobic pace · optional',legs:true,desc:'Longer run at an easy aerobic pace. Optional — not needed every week.'}};
+// Starter structures (editable copies can be saved). Your own structures live in meta.runTemplates.
+const IV_STARTERS=[
+ {id:'s-tempo20',starter:true,name:'Tempo 20 min',warm:10,reps:1,work:20,workUnit:'min',workNote:'comfortably hard',rec:0,recUnit:'min',recNote:'',cool:10},
+ {id:'s-6x3',starter:true,name:'6 × 3 min intervals',warm:10,reps:6,work:3,workUnit:'min',workNote:'hard',rec:2,recUnit:'min',recNote:'easy jog',cool:10}];
+
+/* Weekly schedule — a suggestion, never a restriction. Saved changes live in meta.plan / meta.overrides. */
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],DAYS_LONG=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+const DEFAULT_WEEK=[[{kind:'strength',ref:'A'}],[{kind:'strength',ref:'B'}],[{kind:'cond'}],[{kind:'strength',ref:'C'}],[{kind:'surf'}],[{kind:'recovery',optional:true}],[{kind:'soccer'}]];
+const DAY_ALTS=[
+ [{kind:'recovery'}],
+ [{kind:'recovery'}],
+ [...ORIG_EMOMS.map(r=>({kind:'emom',ref:r})),{kind:'run',ref:'easy'},{kind:'run',ref:'tempo'},{kind:'run',ref:'long'},{kind:'recovery'}],
+ [{kind:'recovery'}],
+ [{kind:'run',ref:'easy'},{kind:'recovery',ref:'mobility'},{kind:'recovery',ref:'rest'}],
+ [{kind:'run',ref:'easy'},{kind:'emom',ref:'L'}],
+ [{kind:'recovery'}]];
 
 const MOBILITY=[{n:'Cat-cow',d:'10 slow reps'},{n:"World's greatest stretch",d:'5/side'},{n:'Thoracic open books',d:'8/side'},{n:'90/90 hip switches',d:'8/side'},{n:'Couch stretch',d:'45 sec/side'},{n:'Cobra / prone press-up',d:'10 reps'},{n:'Shoulder CARs',d:'5/side'},{n:'Deep squat hold',d:'60 sec'}];
 const WARMUP=[{n:'Easy jog',d:'2–3 min'},{n:'Leg swings',d:'10 front + 10 side / leg'},{n:'Walking lunge + twist',d:'8/side'},{n:'High knees & butt kicks',d:'2 × 20 m'},{n:'Lateral shuffle & carioca',d:'2 × 20 m'},{n:'Hip open / close gates',d:'8/side'},{n:'A-skips',d:'2 × 20 m'},{n:'Build-up strides',d:'3 × 30 m at 60/75/90%'},{n:'Quick touches with the ball',d:'2 min'}];
-const GUIDE=[['Main lifts','rest 2–3 minutes.'],['Accessories','rest 60–90 seconds.'],['Effort','most sets 1–3 reps in reserve.'],['Progression','add weight when every set reaches the top of the rep range with good form.'],['Warm-up','5–10 minutes before every session.'],['Fatigue','cut volume (drop a set per exercise) when fatigue builds up.'],['Sunday soccer','prioritize recovery the day before.'],['Surf','move it to whichever day has waves — it still counts.']];
-const CATS={strength:{l:'Strength',c:'var(--ac)',i:'S'},emom:{l:'EMOM',c:'var(--warm)',i:'E'},surf:{l:'Surf',c:'var(--blue)',i:'≈'},soccer:{l:'Soccer',c:'var(--lime)',i:'⚽'},recovery:{l:'Recovery',c:'var(--violet)',i:'R'},activity:{l:'Other',c:'var(--mu)',i:'+'}};
+const GUIDE=[['Main lifts','rest 2–3 minutes.'],['Accessories','rest 60–90 seconds.'],['Effort','most sets 1–3 reps in reserve.'],['Progression','add weight when every set reaches the top of the rep range with good form.'],['Warm-up','5–10 minutes before every session.'],['Fatigue','cut volume (drop a set per exercise) when fatigue builds up.'],['Conditioning','pick any of your four EMOMs or a run — there is no fixed rotation.'],['Sunday soccer','prioritize recovery the day before — no heavy legs or hard running.'],['Surf','move it to whichever day has waves — it still counts.'],['Skipping','skipped and optional sessions never count against you.']];
+const CATS={strength:{l:'Strength',c:'var(--ac)',i:'S'},emom:{l:'EMOM',c:'var(--warm)',i:'E'},run:{l:'Run',c:'var(--pink)',i:'🏃'},surf:{l:'Surf',c:'var(--blue)',i:'≈'},soccer:{l:'Soccer',c:'var(--lime)',i:'⚽'},recovery:{l:'Recovery',c:'var(--violet)',i:'R'},cond:{l:'Conditioning',c:'var(--warm)',i:'C'},activity:{l:'Other',c:'var(--mu)',i:'+'}};
+const LIB_CATS=[['strength','Strength'],['emom','EMOM'],['run','Running'],['surf','Surfing'],['soccer','Soccer'],['recovery','Mobility / Recovery']];
 const LEGACY_NAMES={A:'Strength A',B:'Strength B',C:'Strength C',E1:'EMOM 1 — Upper Strength',E2:'EMOM 2 — Legs + Hinge + Core',E3:'EMOM 3 — Upper Volume + Grip',E4:'EMOM 4 — Power + Surf'};
 
 /* ---------- state ---------- */
-const S={logs:[],meta:{weight:[]},draft:null,tab:'dash',view:null,hist:'all',histN:40,openLog:null,progEx:null,rest:null,storageError:null,persisted:null,lastSaved:null};
+const S={logs:[],meta:{weight:[]},draft:null,tab:'dash',view:null,hist:'all',histN:40,openLog:null,progEx:null,rest:null,storageError:null,persisted:null,lastSaved:null,mirrorOk:null,weekMon:null,pick:null,detail:null,iv:null,ivBack:null,libCat:'all',preBackup:null};
 
 /* ---------- storage ---------- */
 function lsAvailable(){try{const k='__ha_t';localStorage.setItem(k,'1');localStorage.removeItem(k);return true}catch(e){return false}}
@@ -351,26 +409,35 @@ function idbOpen(){return new Promise((res,rej)=>{
  rq.onsuccess=()=>{const d=rq.result;if(done){try{d.close()}catch(e){}return}done=true;clearTimeout(t);d.onversionchange=()=>d.close();res(d)};
  rq.onerror=()=>{if(done)return;done=true;clearTimeout(t);rej(rq.error||new Error('IndexedDB open failed'))};
 })}
-function mirror(){ // synchronous safety copy; primary store when IndexedDB is unavailable
- if(Store.mode==='memory')return;
- try{localStorage.setItem(MIRROR,JSON.stringify({app:'hybrid-athlete',schemaVersion:SCHEMA,savedAt:Date.now(),logs:S.logs,meta:S.meta,draft:S.draft}))}
- catch(e){if(Store.mode==='local')throw e}
-}
+// Every write stamps the same timestamp on the localStorage mirror and in IndexedDB ("savedAt").
+// On boot, if the mirror is newer, IndexedDB missed a write (page killed mid-save, or IDB was
+// unavailable for a session) and the mirror is used — previously that newer data was ignored.
+function mirror(){
+ const ts=Date.now();if(Store.mode==='memory')return ts;
+ try{localStorage.setItem(MIRROR,JSON.stringify({app:'hybrid-athlete',schemaVersion:SCHEMA,savedAt:ts,logs:S.logs,meta:S.meta,draft:S.draft}));S.mirrorOk=true}
+ catch(e){S.mirrorOk=false;if(Store.mode==='local')throw e}
+ return ts}
 function readMirror(){try{const m=JSON.parse(localStorage.getItem(MIRROR)||'null');return m&&Array.isArray(m.logs)?m:null}catch(e){return null}}
 const Store={mode:'memory',db:null,
  async init(){try{this.db=await idbOpen();this.mode='idb'}catch(e){console.warn('Falling back from IndexedDB:',e);this.mode=lsAvailable()?'local':'memory'}},
  _tx(stores,mode,fn){return new Promise((res,rej)=>{let t;try{t=this.db.transaction(stores,mode)}catch(e){return rej(e)}try{fn(t)}catch(e){try{t.abort()}catch(_){}return rej(e)}t.oncomplete=()=>res();t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error||new Error('Transaction aborted'))})},
  async loadAll(){const out={logs:[],meta:{}};await this._tx(['logs','meta'],'readonly',t=>{const r=t.objectStore('logs').getAll();r.onsuccess=()=>{out.logs=r.result||[]};const c=t.objectStore('meta').openCursor();c.onsuccess=()=>{const cur=c.result;if(cur){out.meta[cur.key]=cur.value;cur.continue()}}});return out},
- async putLog(l){mirror();if(this.mode==='idb')await this._tx(['logs'],'readwrite',t=>t.objectStore('logs').put(l))},
- async delLog(id){mirror();if(this.mode==='idb')await this._tx(['logs'],'readwrite',t=>t.objectStore('logs').delete(id))},
- async putMeta(k,v){mirror();if(this.mode==='idb')await this._tx(['meta'],'readwrite',t=>{const s=t.objectStore('meta');if(v==null)s.delete(k);else s.put(v,k)})},
- async replaceAll(){mirror();if(this.mode!=='idb')return;await this._tx(['logs','meta'],'readwrite',t=>{const L=t.objectStore('logs'),M=t.objectStore('meta');L.clear();M.clear();S.logs.forEach(l=>L.put(l));Object.entries(S.meta).forEach(([k,v])=>{if(v!==undefined)M.put(v,k)});if(S.draft)M.put(S.draft,'draft')})}};
+ async putLog(l){const ts=mirror();if(this.mode==='idb')await this._tx(['logs','meta'],'readwrite',t=>{t.objectStore('logs').put(l);t.objectStore('meta').put(ts,'savedAt')})},
+ async delLog(id){const ts=mirror();if(this.mode==='idb')await this._tx(['logs','meta'],'readwrite',t=>{t.objectStore('logs').delete(id);t.objectStore('meta').put(ts,'savedAt')})},
+ async putMeta(k,v){const ts=mirror();if(this.mode==='idb')await this._tx(['meta'],'readwrite',t=>{const s=t.objectStore('meta');if(v==null)s.delete(k);else s.put(v,k);s.put(ts,'savedAt')})},
+ async putRaw(k,v){if(this.mode==='idb')await this._tx(['meta'],'readwrite',t=>t.objectStore('meta').put(v,k))}, // not mirrored (large snapshot)
+ async replaceAll(){const ts=mirror();if(this.mode!=='idb')return;await this._tx(['logs','meta'],'readwrite',t=>{const L=t.objectStore('logs'),M=t.objectStore('meta');L.clear();M.clear();S.logs.forEach(l=>L.put(l));Object.entries(S.meta).forEach(([k,v])=>{if(v!==undefined&&v!==null)M.put(v,k)});if(S.draft)M.put(S.draft,'draft');if(S.preBackup)M.put(S.preBackup,'preUpdateBackup');M.put(ts,'savedAt')})}};
 function okSaved(){S.lastSaved=Date.now();if(S.storageError){S.storageError=null;const b=$('#banner-err');if(b)b.remove()}}
-function fail(e,msg){console.error(e);S.storageError=(msg||'Couldn\'t save to this device.')+(e&&e.name==='QuotaExceededError'?' Storage is full.':'');toast(S.storageError);render()}
+const errBanner=()=>`<section class="card banner err" id="banner-err"><b>Storage problem</b><p class="small muted">${esc(S.storageError)}</p><button class="btn sm warm" data-a="export">Export backup now</button></section>`;
+function fail(e,msg){console.error(e);S.storageError=(msg||'Couldn\'t save to this device.')+(e&&e.name==='QuotaExceededError'?' Storage is full.':'');toast(S.storageError);
+ // don't rebuild the page while you're typing — that used to throw away the field you were in
+ const a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){const b=$('#banner-err');if(b)b.outerHTML=errBanner();else $('#app').insertAdjacentHTML('afterbegin',errBanner())}else render()}
 let saveT=null;
 function touch(){if(S.draft)S.draft.updatedAt=Date.now();clearTimeout(saveT);saveT=setTimeout(saveDraftNow,250)}
 async function saveDraftNow(){clearTimeout(saveT);saveT=null;try{await Store.putMeta('draft',S.draft);okSaved()}catch(e){fail(e,'Couldn\'t autosave this session.')}}
-function flushSync(){if(saveT){clearTimeout(saveT);saveT=null;saveDraftNow()}try{mirror()}catch(e){}}
+// putMeta() writes the mirror synchronously before the async IndexedDB write, so a pending
+// autosave is safe even if iOS suspends the page before IndexedDB finishes.
+function flushSync(){if(saveT){clearTimeout(saveT);saveT=null;saveDraftNow()}}
 
 /* ---------- migration ---------- */
 function upgradeLog(l){
@@ -404,7 +471,7 @@ function migrateLegacy(){
   }}catch(e){}
  return out;
 }
-function validDraft(d){if(!d||typeof d!=='object'||!d.kind||!d.date||!d.id)return false;if(d.kind==='strength')return !!STRENGTH[d.ref]&&Array.isArray(d.ex);if(d.kind==='emom')return !!EMOMS[d.ref]&&!!d.emom;return ['surf','soccer','recovery','activity'].includes(d.kind)&&!!d.f}
+function validDraft(d){if(!d||typeof d!=='object'||!d.kind||!d.date||!d.id)return false;if(d.kind==='strength')return !!STRENGTH[d.ref]&&Array.isArray(d.ex);if(d.kind==='emom')return !!EMOMS[d.ref]&&!!d.emom&&Array.isArray(d.emom.grid);if(d.kind==='run')return !!RUNS[d.ref]&&!!d.f&&!!d.timer;return ['surf','soccer','recovery','activity'].includes(d.kind)&&!!d.f}
 
 /* ---------- queries ---------- */
 const strengthLogs=()=>S.logs.filter(l=>l.category==='strength');
@@ -429,19 +496,103 @@ function fmtSet(kind,s){const w=num(s.weight),r=num(s.reps),t=num(s.secs);
 const restSec=e=>e.rest||(e.role==='main'?150:75);
 const restLabel=e=>e.rest?e.rest+' s':e.role==='main'?'2–3 min':'60–90 s';
 const latestBW=()=>{const w=[...(S.meta.weight||[])].sort((a,b)=>a.date.localeCompare(b.date));return w.length?num(w[w.length-1].value):null};
-function weekCounts(mon){const end=addDays(mon,6);const w=S.logs.filter(l=>l.date>=mon&&l.date<=end&&l.status!=='skipped');const c=k=>w.filter(l=>l.category===k).length;
- const r={strength:c('strength'),emom:c('emom'),surf:c('surf'),soccer:c('soccer'),recovery:c('recovery'),activity:c('activity')};r.score=Math.min(r.strength,3)+Math.min(r.emom,1)+Math.min(r.surf,1)+Math.min(r.soccer,1);return r}
-function weekPlan(mon=mondayOf()){
- const today=localDate(),end=addDays(mon,6),thisWeek=mon===mondayOf(today);
- const wl=S.logs.filter(l=>l.date>=mon&&l.date<=end&&l.status!=='skipped').sort((a,b)=>a.date.localeCompare(b.date));
- return WEEK.map((w,i)=>{const date=addDays(mon,i);let log;
-  if(w.kind==='strength')log=wl.find(l=>l.category==='strength'&&l.program==='v2'&&l.type===w.ref);
-  else log=wl.find(l=>l.category===w.kind);
-  let st;if(log)st='done';else if(date===today)st='today';else if(date>today)st='upcoming';
-  else if(!w.req)st='rest';else if(w.flex&&thisWeek)st='open';else st='missed';
-  return{...w,i,date,log,st}})}
-const draftMatches=p=>!!S.draft&&S.draft.kind===p.kind&&(p.kind!=='strength'||S.draft.ref===p.ref);
-function draftName(d){if(!d)return'';if(d.kind==='strength')return STRENGTH[d.ref].name;if(d.kind==='emom')return EMOMS[d.ref].name;return{surf:'Surf session',soccer:'Soccer game',recovery:'Recovery',activity:'Activity'}[d.kind]}
+function weekCounts(mon){const end=addDays(mon,6),u=prefUnit();const w=S.logs.filter(l=>l.date>=mon&&l.date<=end&&l.status!=='skipped');const c=k=>w.filter(l=>l.category===k).length;
+ return{strength:c('strength'),emom:c('emom'),run:c('run'),surf:c('surf'),soccer:c('soccer'),recovery:c('recovery'),activity:c('activity'),total:w.length,dist:w.filter(l=>l.category==='run').reduce((a,l)=>a+distIn(l,u),0)}}
+
+/* ---------- units · running helpers ---------- */
+const prefUnit=()=>S.meta.prefs&&S.meta.prefs.unit==='km'?'km':'mi';
+const conv=(v,from,to)=>from===to?v:from==='km'?v/1.609344:v*1.609344;
+const distIn=(l,u)=>{const d=num(l.distance);return d>0?conv(d,l.distUnit==='km'?'km':'mi',u):0};
+const fmtHMS=sec=>{sec=Math.max(0,Math.round(sec||0));const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return h?`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`:`${m}:${String(s).padStart(2,'0')}`};
+const fmtPace=(sec,u)=>sec?`${fmtHMS(sec)} /${u}`:'—';
+const r1=v=>Math.round(v*10)/10;
+const UNIT_L={min:'min',sec:'sec',m:'m',km:'km',mi:'mi'};
+const isTimeU=u=>u==='min'||u==='sec';
+const ivPart=(v,u)=>`${num(v)??0} ${UNIT_L[u]||u}`;
+const ivAll=()=>[...(Array.isArray(S.meta.runTemplates)?S.meta.runTemplates.filter(t=>t&&t.id):[]),...IV_STARTERS];
+const ivGet=id=>id?ivAll().find(t=>t.id===id)||null:null;
+function ivSummary(t){if(!t)return'';const w=num(t.warm)||0,c=num(t.cool)||0,r=Math.max(1,Math.round(num(t.reps)||1));
+ return[w?`${w} min warm-up`:'',`${r>1?r+' × ':''}${ivPart(t.work,t.workUnit)}${t.workNote?' '+t.workNote:''}`,r>1&&num(t.rec)?`${ivPart(t.rec,t.recUnit)} ${t.recNote||'recovery'}`:'',c?`${c} min cool-down`:''].filter(Boolean).join(' · ')}
+function ivSegs(t){if(!t)return[];const s=[],r=Math.max(1,Math.min(50,Math.round(num(t.reps)||1)));
+ const seg=(type,label,v,u,note)=>({type,label,sec:isTimeU(u)?(u==='min'?(num(v)||0)*60:(num(v)||0)):null,dist:isTimeU(u)?null:ivPart(v,u),len:num(v)||0,note:note||''});
+ if(num(t.warm))s.push(seg('warm','Warm-up',t.warm,'min','easy'));
+ for(let i=0;i<r;i++){s.push(seg('work',r>1?`Work ${i+1}/${r}`:'Work',t.work,t.workUnit,t.workNote));if(i<r-1&&num(t.rec))s.push(seg('rec','Recovery',t.rec,t.recUnit,t.recNote||'easy'))}
+ if(num(t.cool))s.push(seg('cool','Cool-down',t.cool,'min','easy'));
+ return s.filter(x=>x.len>0)}
+const segLen=s=>s.sec!=null?(s.sec%60?mmss(s.sec):s.sec/60+' min'):s.dist;
+
+/* ---------- flexible schedule ----------
+   Effective plan for a date = meta.overrides[date] (if you changed that day) or meta.plan (your default
+   week) or DEFAULT_WEEK. Templates and logged sessions are never modified by schedule changes. */
+const KINDS=['strength','emom','run','cond','surf','soccer','recovery','activity'];
+const wdOf=ds=>(dOf(ds).getDay()+6)%7;
+const ikey=it=>[it.kind,it.ref||'',it.tpl||''].join(':');
+function iparse(s){const[kind,ref,tpl]=String(s||'').split(':');const o={kind};if(ref)o.ref=ref;if(tpl)o.tpl=tpl;return o}
+const cleanBase=it=>{const o={kind:it.kind};if(it.ref)o.ref=it.ref;if(it.tpl)o.tpl=it.tpl;return o};
+function cleanItem(it){const o=cleanBase(it);if(it.optional)o.optional=true;if(it.skipped)o.skipped=true;if(it.added)o.added=true;return o}
+const validItem=it=>!!it&&typeof it==='object'&&KINDS.includes(it.kind);
+function defaultWeek(){const p=S.meta.plan;return Array.isArray(p)&&p.length===7&&p.every(Array.isArray)?p:DEFAULT_WEEK}
+function planFor(ds){const o=S.meta.overrides&&S.meta.overrides[ds];return(Array.isArray(o)?o:defaultWeek()[wdOf(ds)]).filter(validItem).map(x=>({...x}))}
+const hasOverride=ds=>!!(S.meta.overrides&&Array.isArray(S.meta.overrides[ds]));
+async function saveMeta(k,msg){try{await Store.putMeta(k,S.meta[k]??null);okSaved();return true}catch(e){fail(e,msg||'Couldn\'t save that change.');return false}}
+async function setDays(map){const before=S.meta.overrides;S.meta.overrides={...(S.meta.overrides||{})};Object.entries(map).forEach(([ds,items])=>{S.meta.overrides[ds]=items.map(cleanItem)});
+ if(await saveMeta('overrides','Couldn\'t save your schedule change.'))return true;S.meta.overrides=before;return false}
+const setDay=(ds,items)=>setDays({[ds]:items});
+async function resetDay(ds){const o={...(S.meta.overrides||{})};delete o[ds];S.meta.overrides=o;return saveMeta('overrides')}
+async function setDefaultWeek(w){
+ // freeze recent past days on the old default so changing it never rewrites what past weeks looked like
+ const old=defaultWeek(),today=localDate(),ov={...(S.meta.overrides||{})};
+ for(let ds=addDays(mondayOf(),-56);ds<today;ds=addDays(ds,1))if(!Array.isArray(ov[ds]))ov[ds]=old[wdOf(ds)].map(cleanItem);
+ const bo=S.meta.overrides,bp=S.meta.plan;S.meta.overrides=ov;S.meta.plan=w.map(d=>d.filter(validItem).map(x=>{const o=cleanItem(x);delete o.added;delete o.skipped;return o}));
+ try{await Store.putMeta('overrides',S.meta.overrides);await Store.putMeta('plan',S.meta.plan);okSaved();return true}catch(e){S.meta.overrides=bo;S.meta.plan=bp;fail(e,'Couldn\'t save your default week.');return false}}
+const nextHasSoccer=ds=>planFor(addDays(ds,1)).some(x=>x.kind==='soccer'&&!x.skipped);
+const defNextHasSoccer=wd=>(defaultWeek()[(wd+1)%7]||[]).some(x=>x.kind==='soccer');
+function matches(it,l){if(!l)return false;const c=l.category;
+ switch(it.kind){
+  case'strength':return c==='strength'&&l.program!=='v1'&&l.type===it.ref;
+  case'emom':return(c==='emom'||c==='recovery')&&(l.variant||l.type)===it.ref;
+  case'run':return c==='run'&&l.runType===it.ref&&(!it.tpl||!l.tplId||l.tplId===it.tpl);
+  case'cond':return c==='emom'||c==='run';
+  default:return c===it.kind}}
+const draftLike=d=>({category:d.kind==='emom'&&d.ref==='L'?'recovery':d.kind,type:d.ref,variant:d.ref,runType:d.ref,tplId:d.tpl||null,program:'v2'});
+const draftFor=(it,ds)=>!!S.draft&&S.draft.date===ds&&matches(it,draftLike(S.draft));
+function weekView(mon=mondayOf()){const today=localDate(),end=addDays(mon,6);
+ const wl=S.logs.filter(l=>l.date>=mon&&l.date<=end&&l.status!=='skipped').sort((a,b)=>a.date.localeCompare(b.date)||(a.createdAt||0)-(b.createdAt||0));
+ const used=new Set();
+ const days=DAYS.map((day,i)=>{const date=addDays(mon,i);return{day,i,date,today:date===today,items:planFor(date).map((it,idx)=>({...it,idx}))}});
+ // 1) a session logged on the planned day   2) the same workout done on another day that week still counts
+ days.forEach(d=>d.items.forEach(it=>{if(it.skipped)return;const l=wl.find(l=>!used.has(l.id)&&l.date===d.date&&matches(it,l));if(l){used.add(l.id);it.log=l}}));
+ days.forEach(d=>d.items.forEach(it=>{if(it.skipped||it.log||it.kind==='recovery'||it.kind==='soccer')return;const l=wl.find(l=>!used.has(l.id)&&matches(it,l));if(l){used.add(l.id);it.log=l}}));
+ days.forEach(d=>{d.extras=wl.filter(l=>l.date===d.date&&!used.has(l.id));d.items.forEach(it=>{it.st=it.log?'done':it.skipped?'skipped':draftFor(it,d.date)?'active':d.today?'today':d.date>today?'upcoming':'past'})});
+ return days}
+function weekScore(days){let planned=0,done=0,extra=0;const cat={strength:[0,0],cond:[0,0],surf:[0,0],soccer:[0,0]};
+ days.forEach(d=>{extra+=d.extras.length;d.items.forEach(it=>{if(it.skipped)return;
+  const light=it.kind==='emom'&&it.ref==='L',g=it.kind==='strength'?'strength':['cond','emom','run'].includes(it.kind)&&!light?'cond':it.kind;
+  if(it.optional||it.kind==='recovery'||it.kind==='activity'||light){if(it.log)extra++;return}
+  planned++;if(it.log)done++;if(cat[g]){cat[g][1]++;if(it.log)cat[g][0]++}})});
+ return{planned,done,extra,cat}}
+function draftName(d){if(!d)return'';if(d.kind==='strength')return STRENGTH[d.ref].name;if(d.kind==='emom')return EMOMS[d.ref].name;if(d.kind==='run')return RUNS[d.ref].name+(d.structure?' · '+d.structure.name:'');return{surf:'Surf session',soccer:'Soccer game',recovery:'Recovery',activity:'Activity'}[d.kind]}
+function info(it){const k=it.kind;
+ if(k==='strength'){const p=STRENGTH[it.ref];if(!p)return{name:'Strength',short:'Strength',sub:'',cat:'strength',ic:'S'};return{name:p.name,short:p.name,sub:`${p.dur} · ${p.focus}`,cat:'strength',ic:it.ref,legs:it.ref==='B'}}
+ if(k==='emom'){const e=EMOMS[it.ref];if(!e)return{name:'EMOM',short:'EMOM',sub:'',cat:'emom',ic:'E'};return{name:e.name,short:e.original?`EMOM ${e.n} · ${e.short}`:e.name,sub:`${emN(e)} min · ${e.st.length} stations × ${e.rounds} rounds`,cat:it.ref==='L'?'recovery':'emom',ic:e.original?'E'+e.n:it.ref==='L'?'L':'E',legs:!!e.legs,tag:e.original?'Original':it.ref==='L'?'Light':'Added in v2'}}
+ if(k==='run'){const r=RUNS[it.ref]||RUNS.easy;let name=r.name,sub=r.sub,short=r.short;if(r.id==='tempo'&&it.tpl){const t=ivGet(it.tpl);if(t){short=t.name;name='Tempo / Intervals · '+t.name;sub=ivSummary(t)}}return{name,short,sub,cat:'run',ic:'🏃',legs:!!r.legs}}
+ if(k==='cond')return{name:'Conditioning',short:'Conditioning · your pick',sub:'Any EMOM, any run, or recovery',cat:'cond',ic:'C'};
+ if(k==='surf')return{name:'Surf',short:'Surf',sub:'Any day with waves · optional mobility',cat:'surf',ic:'≈'};
+ if(k==='soccer')return{name:'Soccer',short:'Soccer',sub:'Game · 60–90 min',cat:'soccer',ic:'⚽'};
+ if(k==='recovery'){const r=REC.find(x=>x[0]===it.ref&&x[0]!=='emom');return{name:r?r[1]:'Recovery',short:r?r[1]:'Recovery',sub:r?r[2]:'Rest, mobility or an easy walk',cat:'recovery',ic:'R'}}
+ return{name:'Other activity',short:'Other activity',sub:'Climb, hike, bike…',cat:'activity',ic:'+'}}
+function catalog(c){
+ if(c==='strength')return['A','B','C'].map(r=>({kind:'strength',ref:r}));
+ if(c==='emom')return[...ORIG_EMOMS,...OTHER_EMOMS].map(r=>({kind:'emom',ref:r}));
+ if(c==='run')return[{kind:'run',ref:'easy'},...ivAll().map(t=>({kind:'run',ref:'tempo',tpl:t.id})),{kind:'run',ref:'long'}];
+ if(c==='surf')return[{kind:'surf'}];
+ if(c==='soccer')return[{kind:'soccer'}];
+ if(c==='recovery')return[{kind:'recovery',ref:'rest'},{kind:'recovery',ref:'mobility'},{kind:'recovery',ref:'walk'},{kind:'emom',ref:'L'},{kind:'activity'}];
+ return[]}
+function condOptions(ds){const soc=nextHasSoccer(ds);return[...ORIG_EMOMS.map(r=>({kind:'emom',ref:r})),{kind:'run',ref:'easy'},{kind:'run',ref:'tempo'}].filter(it=>!(soc&&info(it).legs))}
+const startLabel=it=>({strength:'Start workout',emom:'Start EMOM',run:'Start run',surf:'Log surf session',recovery:'Log recovery',soccer:'Log game',activity:'Log activity',cond:'Choose workout'})[it.kind]||'Start';
+const pickCatFor=it=>!it||it.kind==='cond'?'emom':it.kind==='activity'||(it.kind==='emom'&&it.ref==='L')?'recovery':LIB_CATS.some(c=>c[0]===it.kind)?it.kind:'emom';
+const startDate=ds=>{const t=localDate();return ds>t?t:ds};
 
 /* ---------- audio · vibration · wake lock ---------- */
 let AC=null;
@@ -466,21 +617,27 @@ function newStrengthDraft(ref,date){const p=STRENGTH[ref];
   ex:p.ex.map((x,i)=>{const prev=prevFor(x.key);return{key:x.key,name:x.name,kind:x.kind,role:x.role,rest:x.rest,reps:x.reps,cue:x.cue,open:i===0,notes:'',
    sets:Array.from({length:x.sets},(_,j)=>{const ps=prev?(prev.sets[j]||prev.sets[prev.sets.length-1]):null;return{weight:ps&&num(ps.weight)!=null?String(num(ps.weight)):'',reps:'',secs:'',done:false}})}})}}
 function lastEmomLoads(v){const l=S.logs.filter(x=>x.variant===v&&Array.isArray(x.stations)).sort(sortDesc)[0];const o={};if(l)l.stations.forEach((s,i)=>{if(s.load!==''&&s.load!=null)o[i]=String(s.load)});return o}
-function newEmomDraft(v,date){const e=EMOMS[v];return{id:uid(),kind:'emom',ref:v,date,startedAt:Date.now(),updatedAt:Date.now(),notes:'',emom:{grid:e.st.map(()=>Array(e.rounds).fill(false)),loads:lastEmomLoads(v),timer:{start:null,pausedAt:null,paused:0,lastIdx:0,done:false}}}}
+function newEmomDraft(v,date){const e=EMOMS[v];return{id:uid(),kind:'emom',ref:v,date,startedAt:Date.now(),updatedAt:Date.now(),notes:'',emom:{grid:e.st.map(()=>Array(e.rounds).fill(false)),loads:lastEmomLoads(v),finisher:false,timer:{start:null,pausedAt:null,paused:0,lastIdx:0,done:false}}}}
 function newActDraft(kind,date){return{id:uid(),kind,ref:kind,date,startedAt:Date.now(),updatedAt:Date.now(),notes:'',
  f:{duration:'',intensity:kind==='recovery'?'easy':'moderate',conditions:'',tags:[],status:'completed',recoveryType:'rest',activity:'Climbing'},
  mob:Array(MOBILITY.length).fill(false),warm:Array(WARMUP.length).fill(false)}}
-function newDraft(kind,ref,date){if(kind==='strength')return newStrengthDraft(ref,date);if(kind==='emom')return newEmomDraft(ref||suggestedEmom(date),date);return newActDraft(kind,date)}
-async function openSession(kind,ref,date=localDate()){
+function newRunDraft(rt,date,tplId){const r=RUNS[rt]?rt:'easy',def=(S.meta.runDefaults||{})[r]||{},t=r==='tempo'?(ivGet(tplId)||ivAll()[0]):null;
+ return{id:uid(),kind:'run',ref:r,tpl:t?t.id:null,structure:t?{...t}:null,date,startedAt:Date.now(),updatedAt:Date.now(),notes:'',
+  f:{distance:'',unit:prefUnit(),tmin:'',tsec:'',hr:'',status:'completed',tDur:def.dur??'',tDist:def.dist??'',reps:''},
+  timer:{start:null,pausedAt:null,paused:0,idx:0,segStart:null,done:false}}}
+function newDraft(kind,ref,date,opt={}){if(kind==='strength')return newStrengthDraft(STRENGTH[ref]?ref:'A',date);if(kind==='emom')return newEmomDraft(EMOMS[ref]?ref:'E1',date);if(kind==='run')return newRunDraft(ref,date,opt.tpl);
+ const d=newActDraft(KINDS.includes(kind)&&!['cond','strength','emom','run'].includes(kind)?kind:'activity',date);if(kind==='recovery'&&opt.rt&&REC.some(x=>x[0]===opt.rt))d.f.recoveryType=opt.rt;return d}
+async function openSession(kind,ref,date=localDate(),opt={}){
+ if(kind==='cond')return;
  if(S.draft){
-  if(S.draft.kind===kind&&(kind!=='strength'||S.draft.ref===ref)){S.tab='work';S.view='session';scrollTo(0,0);render();return}
-  const c=await sheet({title:'You have an unfinished session',body:`${esc(draftName(S.draft))} · ${esc(fmtDate(S.draft.date))}. Starting something new discards it.`,actions:[{label:'Resume it',v:'resume',cls:'warm'},{label:'Discard and start new',v:'new',cls:'danger'},{label:'Cancel',v:null}]});
-  if(c==='resume'){S.tab='work';S.view='session';scrollTo(0,0);render();return}
+  const d=S.draft,same=d.kind===kind&&(['surf','soccer','recovery','activity'].includes(kind)||(d.ref===ref&&(kind!=='run'||!opt.tpl||d.tpl===opt.tpl)));
+  if(same){go('session');return}
+  const c=await sheet({title:'You have an unfinished session',body:`${esc(draftName(d))} · ${esc(fmtDate(d.date))}. Starting something new discards it.`,actions:[{label:'Resume it',v:'resume',cls:'warm'},{label:'Discard and start new',v:'new',cls:'danger'},{label:'Cancel',v:null}]});
+  if(c==='resume'){go('session');return}
   if(c!=='new')return;
   clearRest();wake(false);
  }
- S.draft=newDraft(kind,ref,date);await saveDraftNow();S.tab='work';S.view='session';scrollTo(0,0);render();
-}
+ S.draft=newDraft(kind,ref,date,opt);await saveDraftNow();go('session')}
 async function discardDraft(){if(!await ask('Discard this session?','Nothing from it will be saved to history.','Discard','danger'))return;S.draft=null;clearRest();wake(false);await saveDraftNow();S.view=null;render();toast('Session discarded')}
 
 /* ---------- rest timer ---------- */
@@ -558,42 +715,47 @@ async function buildStrengthLog(d){
 
 /* ---------- EMOM ---------- */
 function emElapsed(t){if(!t.start)return 0;return((t.pausedAt||Date.now())-t.start-t.paused)/1000}
-const emN=e=>e.rounds*e.st.length;
 function roundsDone(d=S.draft){const e=EMOMS[d.ref],g=d.emom.grid;let n=0;for(let r=0;r<e.rounds;r++)if(g.every(row=>row[r]))n++;return n}
 function curIdx(){const d=S.draft,e=EMOMS[d.ref],t=d.emom.timer;if(!t.start||t.done)return null;const idx=Math.min(Math.floor(emElapsed(t)/60),emN(e)-1);return{idx,st:idx%e.st.length,rd:Math.floor(idx/e.st.length)}}
 function markIdx(k){const d=S.draft,e=EMOMS[d.ref];d.emom.grid[k%e.st.length][Math.floor(k/e.st.length)]=true}
+const stTarget=(s,rd)=>s.odd?(rd%2===0?s.odd:'Even round · '+s.even):s.target;
 function timerInner(){const d=S.draft,e=EMOMS[d.ref],t=d.emom.timer,N=emN(e),total=N*60;
- if(!t.start)return `<div class="em-top"><span class="pill">${e.rounds} rounds × ${e.st.length} stations</span></div><div class="em-clock">${N}:00</div><div class="em-now"><small>First up</small><b>${esc(e.st[0].name)}</b><span>${esc(e.st[0].target)}</span></div><button class="btn warm full big" data-a="emStart">Start EMOM</button><p class="muted small">Beeps at every new minute with a 3-2-1 countdown (turn off silent mode to hear them). The screen stays awake while it runs.</p>`;
+ if(!t.start)return `<div class="em-top"><span class="pill">${e.rounds} rounds × ${e.st.length} stations</span></div><div class="em-clock">${N}:00</div><div class="em-now"><small>First up</small><b>${esc(e.st[0].name)}</b><span>${esc(stTarget(e.st[0],0))}</span></div><button class="btn warm full big" data-a="emStart">Start EMOM</button><p class="muted small">Beeps at every new minute with a 3-2-1 countdown (turn off silent mode to hear them). The screen stays awake while it runs.</p>`;
  const el=Math.min(emElapsed(t),total);
  if(t.done||el>=total)return `<div class="em-clock done">Done</div><p>${roundsDone()}/${e.rounds} rounds complete. Untick anything you missed, then save below.</p><button class="btn ghost sm full" data-a="emReset">Reset timer</button>`;
- const c=curIdx(),rem=Math.ceil(60-(el-c.idx*60)),paused=!!t.pausedAt,nx=c.idx+1<N?e.st[(c.st+1)%e.st.length]:null,cur=d.emom.grid[c.st][c.rd];
+ const c=curIdx(),rem=Math.ceil(60-(el-c.idx*60)),paused=!!t.pausedAt,cur=d.emom.grid[c.st][c.rd];
+ const nxSt=(c.st+1)%e.st.length,nxRd=c.st+1<e.st.length?c.rd:c.rd+1,nx=c.idx+1<N?e.st[nxSt]:null;
  return `<div class="em-top"><span class="pill warm">Minute ${c.idx+1}/${N}</span><span class="pill">Round ${c.rd+1}/${e.rounds}</span><span class="pill" id="em-left">${mmss(total-el)} left</span></div>
  <div class="em-clock ${paused?'paused':''}" id="em-clock" aria-live="off">${Math.min(rem,60)}</div>
  <div class="em-bar"><i id="em-bar" style="width:${Math.max(0,(1-rem/60)*100)}%"></i></div>
- <div class="em-now"><small>${paused?'Paused':'Now'}</small><b>${esc(e.st[c.st].name)}</b><span>${esc(e.st[c.st].target)}</span></div>
- <div class="em-next">${nx?`Next: ${esc(nx.name)} · ${esc(nx.target)}`:'Last minute — finish strong'}</div>
+ <div class="em-now"><small>${paused?'Paused':'Now'}</small><b>${esc(e.st[c.st].name)}</b><span>${esc(stTarget(e.st[c.st],c.rd))}</span></div>
+ <div class="em-next">${nx?`Next: ${esc(nx.name)} · ${esc(stTarget(nx,nxRd))}`:'Last minute — finish strong'}</div>
  <div class="em-btns"><button class="btn ${cur?'primary':'ghost'}" data-a="emMark">${cur?CHECK+' Done':'Mark done'}</button><button class="btn ${paused?'warm':'ghost'}" data-a="${paused?'emStart':'emPause'}">${paused?'Resume':'Pause'}</button></div>
  <button class="btn ghost sm full" data-a="emReset">Reset timer</button>`}
 function emGridCard(){const d=S.draft,e=EMOMS[d.ref],g=d.emom.grid,c=curIdx(),rd=roundsDone();
  return `<section class="card" id="em-grid"><div class="row-b"><h3>Rounds</h3><span class="pill ${rd===e.rounds?'ok':''}">${rd}/${e.rounds} complete</span></div>
  <p class="muted small">Each minute ticks off automatically when it ends. Tap a box to untick a minute you missed, or tick one you did without the timer.</p>
- <div class="emg" style="--cols:${e.rounds}"><span></span>${Array.from({length:e.rounds},(_,r)=>`<span class="emg-h">R${r+1}</span>`).join('')}
- ${e.st.map((s,si)=>`<span class="emg-n">${si+1}. ${esc(s.name)}<small>${esc(s.target)}</small></span>${g[si].map((v,r)=>`<button class="emg-c ${v?'on':''} ${c&&c.st===si&&c.rd===r?'cur':''}" data-a="emCell" data-s="${si}" data-r="${r}" aria-label="${esc(s.name)}, round ${r+1}${v?', done':''}">${v?CHECK:''}</button>`).join('')}`).join('')}</div></section>`}
-function viewEmom(){const d=S.draft,e=EMOMS[d.ref],sug=suggestedEmom(d.date),t=d.emom.timer,locked=!!t.start;
- const hist=S.logs.filter(l=>l.variant===d.ref).sort(sortDesc).slice(0,3);
- const loads=e.st.map((s,i)=>s.load?`<div class="loadrow"><label for="eml${i}">${esc(s.name)}</label><input id="eml${i}" type="text" inputmode="decimal" data-in="emLoad" data-s="${i}" value="${esc(d.emom.loads[i]??'')}" placeholder="lb"></div>`:'').join('');
- return `${sessionHeader(e.name,`${emN(e)} min · ${e.rounds} rounds × ${e.st.length} stations${e.optional?' · optional':''}`)}
- <div class="var-chips">${['A','B','C','L'].map(v=>`<button class="${v===d.ref?'on':''}" data-a="emVar" data-v="${v}" ${locked&&v!==d.ref?'disabled style="opacity:.4"':''}>${v===sug?'<span class="sug">THIS WEEK</span>':''}<b>${v==='L'?'Light':v}</b><small>${esc(EMOMS[v].short)}</small></button>`).join('')}</div>
+ <div class="emg">${e.st.map((s,si)=>`<div class="emg-st"><div class="emg-n">${si+1}. ${esc(s.name)}<small>${esc(s.target)}</small></div><div class="emg-cells" style="--cols:${e.rounds}">${g[si].map((v,r)=>`<button class="emg-c ${v?'on':''} ${c&&c.st===si&&c.rd===r?'cur':''}" data-a="emCell" data-s="${si}" data-r="${r}" aria-label="${esc(s.name)}, round ${r+1}${v?', done':''}">${v?CHECK:r+1}</button>`).join('')}</div></div>`).join('')}</div></section>`}
+function finisherCard(){const d=S.draft,e=EMOMS[d.ref];
+ if(e.finisher)return `<button class="check-row ${d.emom.finisher?'on':''}" data-a="emFin" aria-pressed="${!!d.emom.finisher}"><span class="tick">${d.emom.finisher?CHECK:''}</span><span><b>Finisher</b><small>${esc(e.finisher)}</small></span></button>`;
+ return e.original?'<p class="muted small" style="margin:0 2px 12px"><b style="color:var(--tx)">Finisher</b> · None prescribed</p>':''}
+function viewEmom(){const d=S.draft,e=EMOMS[d.ref],t=d.emom.timer,locked=!!t.start;
+ const hist=S.logs.filter(l=>(l.variant||l.type)===d.ref&&(l.category==='emom'||l.category==='recovery')).sort(sortDesc).slice(0,3);
+ const loads=e.st.map((s,i)=>s.load?`<div class="loadrow"><label for="eml${i}">${esc(s.name)} <small class="muted">(${esc(s.unit||'lb')})</small></label><input id="eml${i}" type="text" inputmode="decimal" data-in="emLoad" data-s="${i}" value="${esc(d.emom.loads[i]??'')}" placeholder="${esc(unitTxt(s.unit))}"></div>`:'').join('');
+ return `${sessionHeader(e.name,`${emN(e)} min · ${e.st.length} stations × ${e.rounds} rounds${e.optional?' · optional':''}`)}
+ ${e.original?`<div class="var-chips">${ORIG_EMOMS.map(v=>`<button class="${v===d.ref?'on':''}" data-a="emVar" data-v="${v}" ${locked&&v!==d.ref?'disabled style="opacity:.4"':''}><b>${EMOMS[v].n}</b><small>${esc(EMOMS[v].short)}</small></button>`).join('')}</div>`:''}
+ ${e.focus?`<p class="muted small" style="margin-top:0">${esc(e.focus)}</p>`:''}
  <section class="card timer" id="em-timer">${timerInner()}</section>
  ${emGridCard()}
- <section class="card"><div class="row-b"><h3>Session</h3></div>${dateField(d)}${loads?`<label class="lbl">Loads (lb)</label>${loads}`:''}
+ ${finisherCard()}
+ <section class="card"><div class="row-b"><h3>Session</h3></div>${dateField(d)}${loads?`<label class="lbl">Loads</label>${loads}`:''}
  <label class="lbl" for="snotes">Notes</label><textarea id="snotes" data-in="notes" placeholder="How did it feel? Rest per minute, reps dropped…">${esc(d.notes)}</textarea></section>
- <section class="card"><p class="small muted"><b style="color:var(--tx)">EMOM rules</b> · Warm up 5 min first. Aim for 15–25 s rest each minute — under 10 s, drop a rep. Miss a minute? Skip that station and rejoin the next one. Form breaks = the set ends.</p>
- ${hist.length?`<div class="mhead">Recent ${esc(e.short)}</div>${hist.map(l=>`<div class="kv"><span>${esc(fmtDate(l.date))}</span><b>${l.roundsCompleted}/${l.rounds} rounds${(l.stations||[]).filter(s=>s.load!==''&&s.load!=null).map(s=>` · ${esc(s.name.split(' ').slice(-1)[0])} ${esc(s.load)}`).join('')}</b></div>`).join('')}`:''}</section>
+ <section class="card"><p class="small muted"><b style="color:var(--tx)">EMOM rules</b> · ${esc(e.original?EMOM_RULES_ORIG+' '+EMOM_HOWTO_ORIG:EMOM_RULES_V2)}</p>
+ ${hist.length?`<div class="mhead">Recent ${esc(e.short)}</div>${hist.map(l=>`<div class="kv"><span>${esc(fmtDate(l.date))}</span><b>${l.rounds?`${l.roundsCompleted}/${l.rounds} rounds`:esc(logSub(l))}${(l.stations||[]).filter(s=>s.load!==''&&s.load!=null).map(s=>` · ${esc(s.name.split(' ').slice(-1)[0])} ${esc(s.load)} ${esc(unitTxt(s.unit))}`).join('')}</b></div>`).join('')}`:''}</section>
  <button class="btn primary full big" data-a="finish">Save EMOM</button>
  <button class="btn danger full" data-a="discard">Discard session</button>`}
 function refreshTimer(){const t=$('#em-timer');if(t)t.innerHTML=timerInner();const g=$('#em-grid');if(g)g.outerHTML=emGridCard()}
-const onEmomScreen=()=>S.tab==='work'&&S.view==='session'&&S.draft&&S.draft.kind==='emom';
+const onEmomScreen=()=>S.view==='session'&&S.draft&&S.draft.kind==='emom';
 function emTick(){const d=S.draft;if(!d||d.kind!=='emom')return;const t=d.emom.timer;if(!t.start||t.pausedAt||t.done)return;
  const e=EMOMS[d.ref],N=emN(e),total=N*60,el=emElapsed(t);
  if(el>=total){for(let k=t.lastIdx;k<N;k++)markIdx(k);t.lastIdx=N;t.done=true;t.pausedAt=t.start+t.paused+total*1000;touch();wake(false);beep(660,.4);setTimeout(()=>beep(990,.6),300);buzz([300,120,300]);if(onEmomScreen())refreshTimer();return}
@@ -606,7 +768,8 @@ async function buildEmomLog(d){const e=EMOMS[d.ref],g=d.emom.grid,rd=roundsDone(
  if(!cells&&!await ask('Nothing ticked off','Save this EMOM anyway? It will be marked partial.','Save anyway'))return null;
  const light=d.ref==='L';
  return{id:d.id,schema:SCHEMA,program:'v2',category:light?'recovery':'emom',type:'EMOM-'+d.ref,variant:d.ref,name:e.name,date:d.date,status:rd===e.rounds?'completed':'partial',rounds:e.rounds,roundsCompleted:rd,stationsDone:cells,
-  stations:e.st.map((s,i)=>({name:s.name,target:s.target,load:d.emom.loads[i]??'',done:g[i].slice()})),timerSec:Math.round(Math.min(emElapsed(d.emom.timer),emN(e)*60)),recoveryType:light?'light-emom':undefined,notes:d.notes||'',createdAt:d.startedAt,updatedAt:Date.now()}}
+  stations:e.st.map((s,i)=>({name:s.name,target:s.target,load:d.emom.loads[i]??'',unit:s.load?(s.unit||'lb'):undefined,done:g[i].slice()})),finisher:e.finisher||null,finisherDone:e.finisher?!!d.emom.finisher:undefined,
+  timerSec:Math.round(Math.min(emElapsed(d.emom.timer),emN(e)*60)),recoveryType:light?'light-emom':undefined,notes:d.notes||'',createdAt:d.startedAt,updatedAt:Date.now()}}
 
 /* ---------- surf / soccer / recovery / other ---------- */
 const seg=(k,opts,cur)=>`<div class="seg" role="group">${opts.map(([v,l])=>`<button class="${cur===v?'on':''}" data-a="seg" data-k="${k}" data-v="${v}" aria-pressed="${cur===v}">${l}</button>`).join('')}</div>`;
@@ -632,9 +795,9 @@ function viewSoccer(){const d=S.draft,wd=d.warm.filter(Boolean).length;
  <label class="lbl" for="snotes">Notes</label><textarea id="snotes" data-in="notes" placeholder="Position, how the legs felt, any knocks…">${esc(d.notes)}</textarea>
  <button class="btn primary full big" data-a="finish">Save game</button><button class="btn danger full" data-a="discard">Discard</button>`}
 const REC=[['rest','Complete rest','Nothing planned'],['mobility','Mobility','10-min routine'],['walk','Walk or easy ride','Light movement'],['emom','Light EMOM','12 min · upper + core']];
-function viewRecovery(){const d=S.draft,rt=d.f.recoveryType,md=d.mob.filter(Boolean).length;
+function viewRecovery(){const d=S.draft,rt=d.f.recoveryType,md=d.mob.filter(Boolean).length,soc=nextHasSoccer(d.date);
  return `${sessionHeader('Recovery','Optional · never counted as a missed session')}
- <section class="card"><p class="muted small" style="margin-top:0">Soccer is tomorrow — keep everything easy today.</p><div class="opts">${REC.map(([v,l,s])=>`<button class="opt ${rt===v?'on':''}" data-a="seg" data-k="recoveryType" data-v="${v}" aria-pressed="${rt===v}"><b>${l}</b><small>${s}</small></button>`).join('')}</div>
+ <section class="card">${soc?'<p class="muted small" style="margin-top:0">Soccer is tomorrow — keep everything easy today.</p>':''}<div class="opts">${REC.map(([v,l,s])=>`<button class="opt ${rt===v?'on':''}" data-a="seg" data-k="recoveryType" data-v="${v}" aria-pressed="${rt===v}"><b>${l}</b><small>${s}</small></button>`).join('')}</div>
  ${rt==='emom'?`<button class="btn warm full" data-a="lightEmom">Open light EMOM (12 min)</button>`:''}</section>
  ${rt==='mobility'?`<section class="card"><div class="row-b"><h3>Mobility routine</h3><span class="pill ${md===MOBILITY.length?'ok':''}">${md}/${MOBILITY.length}</span></div>${checklist(MOBILITY,d.mob,'mob')}</section>`:''}
  <section class="card">${dateField(d)}${rt==='walk'||rt==='mobility'?durField(d,[10,20,30,45]):''}</section>
@@ -654,69 +817,219 @@ function buildActLog(d){const f=d.f,dur=num(f.duration);
  if(d.kind==='recovery'){const r=REC.find(x=>x[0]===f.recoveryType)||REC[0];return{...base,name:'Recovery · '+r[1],status:'completed',recoveryType:f.recoveryType,intensity:'easy',mobilityDone:f.recoveryType==='mobility'?d.mob.filter(Boolean).length:undefined}}
  return{...base,name:f.activity||'Activity',intensity:f.intensity,status:'completed'}}
 
+/* ---------- running ---------- */
+const rtSegEl=t=>t.segStart?((t.pausedAt||Date.now())-t.segStart)/1000:0;
+const rtTotal=t=>t.start?((t.pausedAt||Date.now())-t.start-t.paused)/1000:0;
+const rtWorkDone=d=>ivSegs(d.structure).slice(0,d.timer.idx).filter(s=>s.type==='work').length;
+const onRunScreen=()=>S.view==='session'&&S.draft&&S.draft.kind==='run';
+const runSec=f=>(num(f.tmin)||0)*60+(num(f.tsec)||0);
+function paceTxt(d){const dist=num(d.f.distance),sec=runSec(d.f);return dist>0&&sec>0?fmtPace(Math.round(sec/dist),d.f.unit):'—'}
+function rtFinish(d,live){const t=d.timer;wake(false);
+ if(!String(d.f.tmin).trim()&&!String(d.f.tsec).trim()){const tot=Math.round(rtTotal(t));d.f.tmin=String(Math.floor(tot/60));d.f.tsec=String(tot%60)}
+ if(!String(d.f.reps).trim())d.f.reps=String(rtWorkDone(d));
+ if(live){beep(660,.4);setTimeout(()=>beep(990,.6),300);buzz([300,120,300])}}
+function runTick(){const d=S.draft;if(!d||d.kind!=='run'||!d.structure)return;const t=d.timer;if(!t.start||t.pausedAt||t.done)return;
+ const segs=ivSegs(d.structure);let steps=0;
+ while(!t.done&&segs[t.idx]&&segs[t.idx].sec!=null&&Date.now()-t.segStart>=segs[t.idx].sec*1000){t.segStart+=segs[t.idx].sec*1000;t.idx++;steps++;if(t.idx>=segs.length){t.done=true;t.pausedAt=t.segStart}}
+ if(steps){const live=steps===1;if(t.done)rtFinish(d,live);else if(live){const s=segs[t.idx];beep(s.type==='work'?1175:784,.35);buzz(s.type==='work'?[200,80,200]:250)}touch();if(onRunScreen())t.done?render():refreshRun();return}
+ const s=segs[t.idx];if(s&&s.sec!=null){const rem=Math.ceil(s.sec-(Date.now()-t.segStart)/1000);if(rem<=3&&rem>=1&&S.rtBeep!==t.idx*10+rem){S.rtBeep=t.idx*10+rem;beep(740,.09)}}
+ if(onRunScreen())rtLive()}
+function rtLive(){const d=S.draft,t=d.timer;if(!t.start||t.done)return;const s=ivSegs(d.structure)[t.idx];if(!s)return;const el=rtSegEl(t);
+ const c=$('#rt-clock');if(c)c.textContent=s.sec!=null?mmss(s.sec-el):fmtHMS(el);const b=$('#rt-bar');if(b&&s.sec)b.style.width=Math.min(100,el/s.sec*100)+'%';const tt=$('#rt-total');if(tt)tt.textContent=fmtHMS(rtTotal(t))+' total'}
+function refreshRun(){const x=$('#rt-timer');if(x)x.innerHTML=runTimerInner()}
+function runTimerInner(){const d=S.draft,t=d.timer,segs=ivSegs(d.structure);
+ if(!segs.length)return'<p class="muted small" style="margin:0">This structure has no segments yet — edit it to add a work interval.</p>';
+ const tl=s=>`${esc(segLen(s))}${s.note?' · '+esc(s.note):''}`;
+ if(!t.start){const tot=segs.reduce((a,s)=>a+(s.sec||0),0);return `<div class="em-top"><span class="pill">${segs.length} segments · ${fmtHMS(tot)}${segs.some(s=>s.sec==null)?' + distance reps':''}</span></div><div class="em-now" style="margin:14px 0"><small>First up</small><b>${esc(segs[0].label)}</b><span>${tl(segs[0])}</span></div><button class="btn warm full big" data-a="rtStart">Start run timer</button><p class="muted small">Beeps at each change (turn off silent mode). The screen stays awake while it runs; if the phone locks, the timer catches up when you come back.</p>`}
+ if(t.done)return `<div class="em-clock done">Done</div><p>Total ${fmtHMS(rtTotal(t))} · ${rtWorkDone(d)} work interval${rtWorkDone(d)===1?'':'s'} completed. Add your distance below, then save.</p><button class="btn ghost sm full" data-a="rtReset">Reset timer</button>`;
+ const s=segs[t.idx],el=rtSegEl(t),paused=!!t.pausedAt,nx=segs[t.idx+1];
+ return `<div class="em-top"><span class="pill ${s.type==='work'?'warm':''}">Segment ${t.idx+1}/${segs.length}</span><span class="pill" id="rt-total">${fmtHMS(rtTotal(t))} total</span></div>
+ <div class="em-now" style="margin-top:12px"><small>${paused?'Paused':s.type==='work'?'Work':s.type==='rec'?'Recovery':'Easy'}</small><b>${esc(s.label)}</b><span>${tl(s)}</span></div>
+ <div class="em-clock ${paused?'paused':''}" id="rt-clock">${s.sec!=null?mmss(s.sec-el):fmtHMS(el)}</div>
+ ${s.sec!=null?`<div class="em-bar"><i id="rt-bar" style="width:${Math.min(100,el/s.sec*100)}%"></i></div>`:'<p class="muted small">Distance segment — tap Next when you finish it.</p>'}
+ <div class="em-next">${nx?`Next: ${esc(nx.label)} · ${tl(nx)}`:'Last segment'}</div>
+ <div class="em-btns"><button class="btn ${s.sec==null?'primary':'ghost'}" data-a="rtNext">${nx?'Next segment':'Finish'}</button><button class="btn ${paused?'warm':'ghost'}" data-a="${paused?'rtResume':'rtPause'}">${paused?'Resume':'Pause'}</button></div>
+ <button class="btn ghost sm full" data-a="rtReset">Reset timer</button>`}
+function viewRun(){const d=S.draft,r=RUNS[d.ref],f=d.f,locked=!!d.timer.start,segs=d.structure?ivSegs(d.structure):[],workN=segs.filter(s=>s.type==='work').length;
+ const top=d.ref==='tempo'
+  ?`<section class="card"><div class="row-b"><h3>Interval structure</h3><button class="btn sm ghost" data-a="ivNew" data-from="${esc(d.tpl||'')}">${ivGet(d.tpl)&&!ivGet(d.tpl).starter?'Edit':'Customize'}</button></div>
+   <div class="chips">${ivAll().map(t=>`<button class="chip ${t.id===d.tpl?'on':''}" data-a="runTpl" data-v="${esc(t.id)}" ${locked&&t.id!==d.tpl?'disabled':''}>${esc(t.name)}</button>`).join('')}<button class="chip" data-a="ivNew">+ New</button></div>
+   ${d.structure?`<p class="muted small">${esc(ivSummary(d.structure))}</p>`:''}</section>
+   ${segs.length?`<section class="card timer" id="rt-timer">${runTimerInner()}</section>`:''}`
+  :`<section class="card"><p class="muted small" style="margin-top:0">${esc(r.desc)}</p><label class="lbl">Target <span class="muted">· optional</span></label>
+   <div class="grid2"><input type="text" inputmode="decimal" data-in="rf" data-k="tDur" value="${esc(f.tDur)}" placeholder="Minutes" aria-label="Target minutes"><input type="text" inputmode="decimal" data-in="rf" data-k="tDist" value="${esc(f.tDist)}" placeholder="Distance (${esc(f.unit)})" aria-label="Target distance"></div>
+   <button class="btn sm ghost full" data-a="runDefault">Save as my default target</button></section>`;
+ return `${sessionHeader(r.name,r.sub)}${top}
+ <section class="card"><h3>Result</h3>${dateField(d)}
+ <label class="lbl" for="rdist">Distance</label><div class="grid2"><input id="rdist" type="text" inputmode="decimal" data-in="rf" data-k="distance" value="${esc(f.distance)}" placeholder="e.g. 3.1">${seg('unit',[['mi','mi'],['km','km']],f.unit)}</div>
+ <label class="lbl">Time</label><div class="grid2"><input type="text" inputmode="numeric" data-in="rf" data-k="tmin" value="${esc(f.tmin)}" placeholder="min" aria-label="Minutes"><input type="text" inputmode="numeric" data-in="rf" data-k="tsec" value="${esc(f.tsec)}" placeholder="sec" aria-label="Seconds"></div>
+ <div class="kv" style="margin-top:8px"><span>Average pace</span><b id="rpace">${esc(paceTxt(d))}</b></div>
+ <label class="lbl" for="rhr">Average heart rate <span class="muted">· optional</span></label><input id="rhr" type="text" inputmode="numeric" data-in="rf" data-k="hr" value="${esc(f.hr)}" placeholder="bpm">
+ ${workN?`<label class="lbl" for="rreps">Work intervals completed (of ${workN})</label><input id="rreps" type="text" inputmode="numeric" data-in="rf" data-k="reps" value="${esc(f.reps)}" placeholder="${d.timer.start?rtWorkDone(d):workN}">`:''}
+ <label class="lbl">Status</label>${seg('status',STATUS,f.status)}</section>
+ <label class="lbl" for="snotes">Notes</label><textarea id="snotes" data-in="notes" placeholder="Route, how it felt, weather…">${esc(d.notes)}</textarea>
+ <button class="btn primary full big" data-a="finish">Save run</button><button class="btn danger full" data-a="discard">Discard</button>`}
+function buildRunLog(d){const f=d.f,dist=num(f.distance),sec=runSec(f)||(d.timer.start?Math.round(rtTotal(d.timer)):0),r=RUNS[d.ref];
+ if(f.status!=='skipped'&&!(dist>0)&&!(sec>0)){toast('Add a distance or a time');$('#rdist')?.focus();return null}
+ const workN=d.structure?ivSegs(d.structure).filter(s=>s.type==='work').length:0,reps=num(f.reps)??(d.timer.start?rtWorkDone(d):null);
+ return{id:d.id,schema:SCHEMA,program:'v2',category:'run',type:'run-'+d.ref,runType:d.ref,name:d.structure?`${r.short} · ${d.structure.name}`:r.name,date:d.date,status:f.status,
+  distance:dist??'',distUnit:f.unit==='km'?'km':'mi',durationSec:sec||null,duration:sec?Math.round(sec/60):'',paceSec:dist>0&&sec>0?Math.round(sec/dist):null,hr:num(f.hr)??'',
+  target:num(f.tDur)||num(f.tDist)?{dur:num(f.tDur),dist:num(f.tDist),unit:f.unit}:null,tplId:d.tpl||null,structure:d.structure?{...d.structure}:null,intervals:workN||null,intervalsDone:workN?reps:null,
+  timerSec:d.timer.start?Math.round(rtTotal(d.timer)):null,intensity:d.ref==='tempo'?'hard':'easy',notes:d.notes||'',createdAt:d.startedAt,updatedAt:Date.now()}}
+
 async function finishSession(){const d=S.draft;if(!d)return;let log;
- if(d.kind==='strength')log=await buildStrengthLog(d);else if(d.kind==='emom')log=await buildEmomLog(d);else log=buildActLog(d);
+ if(d.kind==='strength')log=await buildStrengthLog(d);else if(d.kind==='emom')log=await buildEmomLog(d);else if(d.kind==='run')log=buildRunLog(d);else log=buildActLog(d);
  if(!log)return;
  if(!await saveLog(log))return;
+ if(d.kind==='run'&&log.distUnit!==prefUnit()){S.meta.prefs={...(S.meta.prefs||{}),unit:log.distUnit};saveMeta('prefs')}
  S.draft=null;clearRest();wake(false);await saveDraftNow();S.view=null;S.tab='dash';scrollTo(0,0);render();toast(log.status==='skipped'?'Logged as skipped':'Saved ✓')}
 async function saveLog(log){const i=S.logs.findIndex(l=>l.id===log.id),before=i>=0?S.logs[i]:null;if(i>=0)S.logs[i]=log;else S.logs.push(log);
  try{await Store.putLog(log);okSaved();return true}catch(e){if(before)S.logs[i]=before;else S.logs=S.logs.filter(l=>l!==log);try{mirror()}catch(_){}fail(e,'Couldn\'t save this session — it\'s still open. Export a backup, then try again.');return false}}
 
 /* ---------- views ---------- */
 function banner(){let h='';
- if(S.storageError)h+=`<section class="card banner err" id="banner-err"><b>Storage problem</b><p class="small muted">${esc(S.storageError)}</p><button class="btn sm warm" data-a="export">Export backup now</button></section>`;
+ if(S.storageError)h+=errBanner();
  if(Store.mode==='local')h+=`<section class="card banner"><b>Using backup storage</b><p class="small muted">IndexedDB isn't available in this browser, so your data is saved to localStorage instead. It still persists, but export backups regularly.</p></section>`;
  if(Store.mode==='memory')h+=`<section class="card banner err"><b>Storage is blocked</b><p class="small muted">This browser isn't letting the app save anything (Private Browsing or blocked site data). Nothing will survive closing this tab — export before you leave.</p><button class="btn sm warm" data-a="export">Export backup</button></section>`;
  return h}
-function viewDash(){const today=localDate(),plan=weekPlan(),tp=plan.find(p=>p.date===today),wc=weekCounts(mondayOf()),dTxt=fmtDate(today,{weekday:'long',month:'long',day:'numeric'});
+const FWD='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+const icStyle=cat=>{const c=(CATS[cat]||CATS.activity).c;return `border-color:color-mix(in srgb, ${c} 55%, transparent);color:${c}`};
+const ST_LABEL={done:'Done',skipped:'Skipped',active:'In progress',today:'Today',upcoming:'',past:'Not logged'};
+function itemRow(it,d){const f=info(it),st=it.st;let lab=ST_LABEL[st]||'';
+ if(st==='done'&&it.log.date!==d.date)lab='Done '+fmtDate(it.log.date,{weekday:'short'});
+ if(it.optional&&!['done','active','skipped'].includes(st))lab='Optional';
+ const sub=st==='done'?(logSub(it.log)||f.sub):f.sub;
+ return `<button class="day-row st-${st} ${it.optional?'opt':''}" data-a="itemMenu" data-date="${d.date}" data-idx="${it.idx}"><span class="dr-ic" ${st==='done'||st==='active'?'':`style="${icStyle(f.cat)}"`}>${st==='done'?CHECK:esc(f.ic)}</span><span class="dr-t"><b>${esc(f.short)}</b><small>${esc(sub)}</small></span><span class="dr-s">${esc(lab)}</span></button>`}
+function extraRow(l){const c=CATS[l.category]||CATS.activity;return `<button class="day-row st-done extra" data-a="openLog" data-id="${esc(l.id)}"><span class="dr-ic">${CHECK}</span><span class="dr-t"><b>${esc(l.name||c.l)}</b><small>${esc(logSub(l)||c.l)}</small></span><span class="dr-s">Extra</span></button>`}
+const resumeCard=()=>S.draft?`<section class="card hero st-active"><div class="eyebrow" style="color:var(--warm)">In progress</div><h2 class="hero-t">${esc(draftName(S.draft))}</h2><div class="muted small">${esc(fmtDate(S.draft.date))} · autosaved</div><button class="btn warm full" data-a="resume">Resume</button></section>`:'';
+function dayState(d){const its=d.items.filter(x=>!x.skipped),req=its.filter(x=>!x.optional&&x.kind!=='recovery'),any=its.some(x=>x.log)||d.extras.length>0;
+ if(its.some(x=>x.st==='active'))return'active';if(any&&req.every(x=>x.log))return'done';if(d.today)return'today';if(!req.length)return'rest';return d.date<localDate()?'past':'upcoming'}
+function strip(days){return `<div class="strip">${days.map(d=>{const st=dayState(d),f=d.items.find(x=>!x.skipped),fi=f?info(f):null;return `<button class="st-${st}" data-a="openDay" data-date="${d.date}" aria-label="${d.day}: ${esc(fi?fi.short:'Rest')}"><span class="c">${st==='done'?CHECK:esc(fi?fi.ic:'–')}</span>${d.day}</button>`}).join('')}</div>`}
+function viewDash(){const today=localDate(),days=weekView(),td=days.find(d=>d.today),sc=weekScore(days),dTxt=fmtDate(today,{weekday:'long',month:'long',day:'numeric'});
  const stale=S.logs.length&&(!S.meta.lastExportAt||Date.now()-S.meta.lastExportAt>14*864e5);
- const resume=S.draft&&!draftMatches(tp)?`<section class="card hero st-active"><div class="eyebrow" style="color:var(--warm)">In progress</div><h2 class="hero-t">${esc(draftName(S.draft))}</h2><div class="muted small">${esc(fmtDate(S.draft.date))} · autosaved</div><button class="btn warm full" data-a="resume">Resume</button></section>`:'';
- const pct=wc.score/6,R=34,C=2*Math.PI*R;
- const bd=[['Strength',Math.min(wc.strength,3),3],['EMOM',Math.min(wc.emom,1),1],['Surf',Math.min(wc.surf,1),1],['Soccer',Math.min(wc.soccer,1),1]];
- return `<div class="eyebrow">${esc(dTxt)}</div><h1>Today</h1>${resume}${todayCard(tp)}
- <section class="card"><div class="row-b" style="margin-bottom:12px"><h3>This week</h3><span class="muted small">Week of ${esc(fmtDate(mondayOf(),{month:'short',day:'numeric'}))}</span></div>
- <div class="strip">${plan.map(p=>{const st=draftMatches(p)&&!p.log?'active':p.st;return `<button class="st-${st}" data-a="openDay" data-i="${p.i}" aria-label="${p.day}: ${esc(p.title)}, ${st}"><span class="c">${st==='done'?CHECK:st==='missed'?'!':p.kind==='strength'?p.ref:p.kind==='emom'?'E':p.kind==='surf'?'≈':p.kind==='soccer'?'⚽':'R'}</span>${p.day}</button>`}).join('')}</div>
- <div class="legend"><span><i style="background:var(--ac)"></i>Done</span><span><i style="background:var(--warm)"></i>In progress</span><span><i style="border:2px solid var(--tx)"></i>Today</span><span><i style="border:2px dashed var(--dim)"></i>Flexible / optional</span></div></section>
- <section class="card"><div class="ringwrap"><svg class="ring" viewBox="0 0 84 84" role="img" aria-label="${wc.score} of 6 planned sessions done"><circle cx="42" cy="42" r="${R}" fill="none" stroke="var(--s3)" stroke-width="9"/><circle cx="42" cy="42" r="${R}" fill="none" stroke="var(--ac)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 42 42)"/><text x="42" y="49" text-anchor="middle">${wc.score}/6</text></svg>
- <div class="breakdown">${bd.map(([l,v,m])=>`<div class="${v>=m?'full':''}"><span>${l}</span><b>${v}/${m}</b></div>`).join('')}</div></div><p class="muted small" style="margin-bottom:0">Planned sessions this week. Saturday recovery and extra activities never count against you.</p></section>
- <div class="tiles"><button class="tile" data-a="start" data-k="surf"><b><span class="tg" style="background:var(--blue)"></span>Log surf</b><small>Any day</small></button><button class="tile" data-a="start" data-k="soccer"><b><span class="tg" style="background:var(--lime)"></span>Log soccer</b><small>Game or practice</small></button><button class="tile" data-a="start" data-k="activity"><b><span class="tg" style="background:var(--mu)"></span>Other</b><small>Climb, hike…</small></button></div>
+ const resume=S.draft&&!td.items.some(it=>it.st==='active')?resumeCard():'';
+ const R=34,C=2*Math.PI*R,pct=sc.planned?Math.min(1,sc.done/sc.planned):0;
+ const bd=[['Strength',...sc.cat.strength],['Conditioning',...sc.cat.cond],['Surf',...sc.cat.surf],['Soccer',...sc.cat.soccer]].filter(x=>x[2]>0);
+ return `<div class="eyebrow">${esc(dTxt)}</div><h1>Today</h1>${resume}${todaySection(td)}
+ <section class="card"><div class="row-b" style="margin-bottom:12px"><h3>This week</h3><button class="btn sm ghost" data-a="tab" data-t="week">Plan week</button></div>
+ ${strip(days)}
+ <div class="legend"><span><i style="background:var(--ac)"></i>Done</span><span><i style="background:var(--warm)"></i>In progress</span><span><i style="border:2px solid var(--tx)"></i>Today</span><span><i style="border:2px dashed var(--dim)"></i>Optional / rest</span></div></section>
+ <section class="card"><div class="ringwrap"><svg class="ring" viewBox="0 0 84 84" role="img" aria-label="${sc.done} of ${sc.planned} planned sessions done"><circle cx="42" cy="42" r="${R}" fill="none" stroke="var(--s3)" stroke-width="9"/><circle cx="42" cy="42" r="${R}" fill="none" stroke="var(--ac)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 42 42)"/><text x="42" y="49" text-anchor="middle">${sc.done}/${sc.planned}</text></svg>
+ <div class="breakdown">${bd.map(([l,v,m])=>`<div class="${v>=m?'full':''}"><span>${l}</span><b>${v}/${m}</b></div>`).join('')}${sc.extra?`<div class="full"><span>Extra</span><b>+${sc.extra}</b></div>`:''}</div></div><p class="muted small" style="margin-bottom:0">Planned sessions this week. Skipped, optional and recovery sessions never count against you.</p></section>
+ <div class="tiles"><button class="tile" data-a="start" data-k="run" data-r="easy"><b><span class="tg" style="background:var(--pink)"></span>Log run</b><small>Easy, tempo, long</small></button><button class="tile" data-a="start" data-k="surf"><b><span class="tg" style="background:var(--blue)"></span>Log surf</b><small>Any day</small></button><button class="tile" data-a="start" data-k="soccer"><b><span class="tg" style="background:var(--lime)"></span>Log soccer</b><small>Game or practice</small></button><button class="tile" data-a="start" data-k="recovery"><b><span class="tg" style="background:var(--violet)"></span>Recovery</b><small>Rest, mobility</small></button><button class="tile" data-a="tab" data-t="lib"><b><span class="tg" style="background:var(--warm)"></span>Library</b><small>All workouts</small></button><button class="tile" data-a="start" data-k="activity"><b><span class="tg" style="background:var(--mu)"></span>Other</b><small>Climb, hike…</small></button></div>
  ${stale?`<section class="card banner" style="margin-top:12px"><b>Back up your log</b><p class="small muted">Last export: ${S.meta.lastExportAt?esc(new Date(S.meta.lastExportAt).toLocaleDateString()):'never'}. Your data lives only on this device — save a copy to Files or iCloud Drive.</p><button class="btn sm warm" data-a="export">Export JSON backup</button></section>`:''}
  <details class="card guide" style="margin-top:12px"><summary><b>Training guidelines</b></summary><ul>${GUIDE.map(([a,b])=>`<li><b>${a}:</b> ${b}</li>`).join('')}</ul></details>`}
-function todayCard(p){const sug=suggestedEmom(p.date),active=draftMatches(p);let title=p.title,sub=p.dur,body='';
- if(p.kind==='strength'){const pr=STRENGTH[p.ref];sub=`${p.dur} · ${pr.focus}`;body=`<ul class="mini">${pr.ex.map(x=>`<li><span>${esc(x.name)}</span><b>${x.sets} × ${esc(x.reps)}</b></li>`).join('')}</ul>`}
- else if(p.kind==='emom'){const e=EMOMS[sug];title=`EMOM ${sug} — ${e.short}`;sub='20 min · 5 rounds × 4 · rotates weekly';body=`<ul class="mini">${e.st.map((s,i)=>`<li><span>Min ${i+1} · ${esc(s.name)}</span><b>${esc(s.target)}</b></li>`).join('')}</ul>`}
- else if(p.kind==='surf')body='<p class="muted small">No waves today? Surf any day this week — it still counts. Optional 10-min mobility included.</p>';
- else if(p.kind==='recovery')body='<p class="muted small">Optional. Rest, mobility, an easy walk or ride, or a light 12-min EMOM. Keep it easy — soccer is tomorrow.</p>';
- else if(p.kind==='soccer')body=`<p class="muted small">Warm up first: ${WARMUP.slice(0,4).map(w=>esc(w.n)).join(' → ')} → strides.</p>`;
- const label={strength:'Start workout',emom:`Start EMOM ${sug}`,surf:'Log surf session',recovery:'Log recovery',soccer:'Log game'}[p.kind];
- const btn=p.log?`<div class="done-line">${CHECK} Completed · ${esc(logSub(p.log))}</div><button class="btn ghost sm full" data-a="start" data-k="${p.kind}" data-r="${p.kind==='emom'?sug:p.ref||''}">Log another</button>`:active?`<button class="btn warm full big" data-a="resume">Resume</button>`:`<button class="btn primary full big" data-a="start" data-k="${p.kind}" data-r="${p.kind==='emom'?sug:p.ref||''}">${label}</button>`;
- return `<section class="card hero st-${p.log?'done':active?'active':'today'}"><div class="eyebrow" style="color:${p.log?'var(--ac)':active?'var(--warm)':'var(--mu)'}">${p.day} · ${p.req?'Planned':'Optional'}${active&&!p.log?' · In progress':''}</div><h2 class="hero-t">${esc(title)}</h2><div class="muted small">${esc(sub)}</div>${body}${btn}</section>`}
-function viewWorkouts(){const plan=weekPlan();
- const lab={done:'Done',today:'Today',upcoming:'',missed:'Missed',open:'Any day',rest:'Optional'};
- const any=[['strength','A','Upper A','var(--ac)'],['strength','B','Lower B','var(--ac)'],['strength','C','Full Body C','var(--ac)'],['emom','A','EMOM A','var(--warm)'],['emom','B','EMOM B','var(--warm)'],['emom','C','EMOM C','var(--warm)'],['surf','','Surf','var(--blue)'],['soccer','','Soccer','var(--lime)'],['recovery','','Recovery','var(--violet)']];
- return `<div class="eyebrow">Week of ${esc(fmtDate(mondayOf(),{month:'long',day:'numeric'}))}</div><h1>Workouts</h1>
- ${S.draft?`<section class="card hero st-active"><div class="eyebrow" style="color:var(--warm)">In progress</div><h2 class="hero-t">${esc(draftName(S.draft))}</h2><button class="btn warm full" data-a="resume">Resume</button></section>`:''}
- ${plan.map(p=>{const active=draftMatches(p)&&!p.log,st=active?'active':p.st;const title=p.kind==='emom'?`EMOM ${suggestedEmom(p.date)} — ${EMOMS[suggestedEmom(p.date)].short}`:p.title;
-  return `<button class="day-row st-${st}" data-a="openDay" data-i="${p.i}"><span class="dr-ic">${st==='done'?CHECK:p.day.slice(0,2)}</span><span class="dr-t"><b>${esc(title)}</b><small>${p.day} · ${esc(p.dur)}</small></span><span class="dr-s">${active?'In progress':lab[st]||''}</span></button>`}).join('')}
- <h2>Start any session</h2><div class="tiles">${any.map(([k,r,l,c])=>`<button class="tile" data-a="start" data-k="${k}" data-r="${r}"><b><span class="tg" style="background:${c}"></span>${l}</b><small>${k==='strength'?STRENGTH[r].dur:k==='emom'?esc(EMOMS[r].short):k==='recovery'?'Optional':'Log it'}</small></button>`).join('')}<button class="tile" data-a="start" data-k="activity"><b><span class="tg" style="background:var(--mu)"></span>Other</b><small>Climb, hike…</small></button></div>
- <details class="card guide" style="margin-top:14px"><summary><b>Training guidelines</b></summary><ul>${GUIDE.map(([a,b])=>`<li><b>${a}:</b> ${b}</li>`).join('')}</ul></details>`}
-function viewSession(){const k=S.draft.kind;return k==='strength'?viewStrength():k==='emom'?viewEmom():k==='surf'?viewSurf():k==='soccer'?viewSoccer():k==='recovery'?viewRecovery():viewActivity()}
+function todaySection(d){const live=d.items.filter(it=>it.st==='today'||it.st==='active'),main=live.find(it=>it.st==='active')||live[0],rest=d.items.filter(it=>it!==main);let h='';
+ if(main)h+=heroCard(main,d);
+ else{const done=d.items.some(it=>it.st==='done')||d.extras.length;h+=`<section class="card hero st-done"><div class="eyebrow" style="color:${done?'var(--ac)':'var(--mu)'}">${d.day} · ${done?'All done':d.items.length?'Plan cleared':'Nothing planned'}</div><h2 class="hero-t">${done?'Nice work today':'Rest day'}</h2><p class="muted small">${done?'Everything planned for today is logged.':'Nothing scheduled. Add something if you feel like it.'}</p><button class="btn ghost full" data-a="addTo" data-date="${d.date}">+ Add workout</button></section>`}
+ if(rest.length||d.extras.length)h+=`<div class="mhead" style="margin-top:4px">Also today</div>${rest.map(it=>itemRow(it,d)).join('')}${d.extras.map(extraRow).join('')}`;
+ return h}
+function heroCard(it,d){const f=info(it),active=it.st==='active',soc=nextHasSoccer(d.date),A=`data-date="${d.date}" data-idx="${it.idx}"`;
+ const ey=`${d.day} · ${it.optional?'Optional':'Suggested'}${active?' · In progress':''}`;
+ if(it.kind==='cond')return `<section class="card hero st-today"><div class="eyebrow">${ey}</div><h2 class="hero-t">Conditioning — your pick</h2><div class="muted small">Any EMOM or run. No fixed rotation — choose what fits today.</div>
+  <div class="opts" style="margin-top:12px">${condOptions(d.date).map(o=>{const fo=info(o);return `<button class="opt" data-a="choose" ${A} data-key="${esc(ikey(o))}"><b>${esc(fo.short)}</b><small>${esc(o.kind==='emom'?emN(EMOMS[o.ref])+' min':o.ref==='tempo'?'Pick a structure':'Zone 2')}</small></button>`}).join('')}</div>
+  ${soc?'<p class="caution">Soccer tomorrow — leg-heavy options are hidden here.</p>':''}
+  <div class="btn-row" style="margin-top:10px"><button class="btn ghost sm" data-a="change" ${A}>More options</button><button class="btn ghost sm" data-a="skip" ${A}>Skip</button><button class="btn ghost sm" data-a="markRec" data-date="${d.date}">Recovery day</button></div></section>`;
+ let body='';
+ if(it.kind==='strength'){const p=STRENGTH[it.ref];if(p)body=`<ul class="mini">${p.ex.map(x=>`<li><span>${esc(x.name)}</span><b>${x.sets} × ${esc(x.reps)}</b></li>`).join('')}</ul>`}
+ else if(it.kind==='emom'){const e=EMOMS[it.ref];if(e)body=`<ul class="mini">${e.st.map((s,i)=>`<li><span>Min ${i+1} · ${esc(s.name)}</span><b>${esc(s.target)}</b></li>`).join('')}${e.finisher?`<li><span>Finisher</span><b>${esc(e.finisher)}</b></li>`:''}</ul>`}
+ else if(it.kind==='run'){const t=it.ref==='tempo'?ivGet(it.tpl):null;body=`<p class="muted small">${esc(t?ivSummary(t):(RUNS[it.ref]||RUNS.easy).desc)}</p>`}
+ else if(it.kind==='surf')body='<p class="muted small">No waves today? Surf any day this week — it still counts. Optional 10-min mobility included.</p>';
+ else if(it.kind==='recovery')body=`<p class="muted small">Optional. Rest, mobility, an easy walk or ride, or a light 12-min EMOM.${soc?' Keep it easy — soccer is tomorrow.':''}</p>`;
+ else if(it.kind==='soccer')body=`<p class="muted small">Warm up first: ${WARMUP.slice(0,4).map(w=>esc(w.n)).join(' → ')} → strides.</p>`;
+ const warn=f.legs&&soc?'<p class="caution">Soccer is tomorrow and this one is heavy on the legs — consider swapping it.</p>':'';
+ const btn=active?`<button class="btn warm full big" data-a="resume">Resume</button>`:`<button class="btn primary full big" data-a="startItem" ${A}>${startLabel(it)}</button>`;
+ return `<section class="card hero st-${active?'active':'today'}"><div class="eyebrow" style="color:${active?'var(--warm)':'var(--mu)'}">${ey}</div><h2 class="hero-t">${esc(f.name)}</h2><div class="muted small">${esc(f.sub)}</div>${body}${warn}${btn}
+ <div class="btn-row" style="margin-top:8px"><button class="btn ghost sm" data-a="change" ${A}>Change workout</button><button class="btn ghost sm" data-a="skip" ${A}>Skip</button><button class="btn ghost sm" data-a="addTo" data-date="${d.date}">+ Add</button></div></section>`}
+function viewWeek(){const mon=S.weekMon||mondayOf(),days=weekView(mon),sc=weekScore(days),thisWeek=mon===mondayOf();
+ return `<div class="wk-nav"><button class="back" data-a="wkNav" data-v="-1" aria-label="Previous week">${BACK}</button><div class="mid"><div class="eyebrow">${thisWeek?'This week':mon<mondayOf()?'Past week':'Upcoming week'}</div><b>${esc(fmtDate(mon,{month:'short',day:'numeric'}))} – ${esc(fmtDate(addDays(mon,6),{month:'short',day:'numeric'}))}</b><small class="muted">${sc.done}/${sc.planned} planned done${sc.extra?` · +${sc.extra} extra`:''}</small></div><button class="back" data-a="wkNav" data-v="1" aria-label="Next week">${FWD}</button></div>
+ ${S.draft?resumeCard():''}
+ <p class="muted small" style="margin-top:0">The plan is a suggestion. Tap a workout to start, change, move or skip it. Tap Edit on a day to add a workout or make it a recovery day.</p>
+ ${days.map(dayCard).join('')}
+ <div class="btn-row" style="margin-top:6px"><button class="btn ghost" data-a="editDefault">Edit default week</button><button class="btn ghost" data-a="saveDefault" data-mon="${mon}">Save as default</button></div>
+ ${thisWeek?'':'<button class="btn ghost full" data-a="wkNav" data-v="0">Back to this week</button>'}`}
+function dayCard(d){return `<section class="daycard ${d.today?'today':''}" id="day-${d.date}"><div class="dc-h"><b>${d.day} <span class="muted">${esc(fmtDate(d.date,{month:'short',day:'numeric'}))}</span>${d.today?' <span class="pill ok">Today</span>':''}${hasOverride(d.date)?' <span class="pill">Changed</span>':''}</b><button class="btn sm ghost" data-a="dayMenu" data-date="${d.date}">Edit</button></div>${d.items.map(it=>itemRow(it,d)).join('')}${d.extras.map(extraRow).join('')}${!d.items.length&&!d.extras.length?'<p class="muted small" style="margin:0 2px">Nothing planned — rest day.</p>':''}</section>`}
+function viewPlan(){const w=defaultWeek();
+ return `${sessionHeader('Default week','The plan every new week starts from')}
+ <p class="muted small" style="margin-top:0">Changing this never touches logged sessions or days you've already customized in the Week view.</p>
+ ${DAYS.map((day,wd)=>`<section class="daycard"><div class="dc-h"><b>${DAYS_LONG[wd]}</b><button class="btn sm ghost" data-a="defAdd" data-wd="${wd}">+ Add</button></div>${(w[wd]||[]).map((it,idx)=>{const f=info(it);return `<button class="day-row ${it.optional?'opt':''}" data-a="defMenu" data-wd="${wd}" data-idx="${idx}"><span class="dr-ic" style="${icStyle(f.cat)}">${esc(f.ic)}</span><span class="dr-t"><b>${esc(f.short)}</b><small>${esc(f.sub)}</small></span><span class="dr-s">${it.optional?'Optional':''}</span></button>`}).join('')||'<p class="muted small" style="margin:0 2px">Rest — nothing planned</p>'}</section>`).join('')}
+ <button class="btn ghost full" data-a="defRestore">Restore original schedule</button>`}
+function itemsRows(list,act,o={}){return list.map(it=>{const f=info(it),k=ikey(it),tags=[];
+ if(f.tag==='Original')tags.push('<span class="pill ok">Original</span>');else if(f.tag)tags.push(`<span class="pill">${esc(f.tag)}</span>`);
+ if(it.kind==='run'&&it.tpl&&ivGet(it.tpl)?.starter)tags.push('<span class="pill">Starter</span>');
+ if(it.kind==='run'&&it.ref==='long')tags.push('<span class="pill">Optional</span>');
+ if(o.soc&&f.legs)tags.push('<span class="pill warm">Leg-heavy · soccer next day</span>');
+ if(o.cur===k)tags.push('<span class="pill ok">Current</span>');
+ return `<button class="day-row lib-row" data-a="${act}" data-key="${esc(k)}"><span class="dr-ic" style="${icStyle(f.cat)}">${esc(f.ic)}</span><span class="dr-t"><b>${esc(f.short)}</b><small>${esc(f.sub)}</small>${tags.length?`<span class="tags">${tags.join('')}</span>`:''}</span><span class="go">${FWD}</span></button>`}).join('')}
+function libSection(c,act,o={}){
+ if(c==='emom')return `<div class="sub-h">Your four EMOMs</div>${itemsRows(ORIG_EMOMS.map(r=>({kind:'emom',ref:r})),act,o)}<div class="sub-h">More EMOMs (added in v2)</div>${itemsRows(OTHER_EMOMS.map(r=>({kind:'emom',ref:r})),act,o)}`;
+ return itemsRows(catalog(c),act,o)+(c==='run'?'<button class="btn ghost sm full" data-a="ivNew" style="margin:0 0 8px">+ New interval structure</button>':'')}
+function viewLib(){const f=S.libCat;
+ return `<h1>Library</h1><p class="muted small" style="margin-top:-8px">Every workout template. Open one to see it, start it now, or put it on a day. Rearranging your week never changes these.</p>
+ <div class="filters">${[['all','All'],...LIB_CATS].map(([v,l])=>`<button class="chip ${f===v?'on':''}" data-a="libCat" data-v="${v}">${l}</button>`).join('')}</div>
+ ${LIB_CATS.filter(([c])=>f==='all'||f===c).map(([c,l])=>`<div class="mhead">${l}</div>${libSection(c,'libOpen')}`).join('')}`}
+function viewPick(){const P=S.pick,date=P.date||null,wd=date?wdOf(date):P.wd,soc=date?nextHasSoccer(date):defNextHasSoccer(wd);
+ const curList=date?planFor(date):(defaultWeek()[wd]||[]),cur=P.idx!=null?curList[P.idx]:null,curK=cur?ikey(cur):null;
+ const seen=new Set(),sug=[...(defaultWeek()[wd]||[]),...(DAY_ALTS[wd]||[])].map(cleanBase).filter(it=>{const k=ikey(it);if(seen.has(k))return false;seen.add(k);return !(soc&&info(it).legs)});
+ if(!seen.has('cond::'))sug.push({kind:'cond'});
+ const title={replace:'Change workout',add:'Add a workout',defReplace:'Change default',defAdd:'Add to default week'}[P.mode]||'Choose workout';
+ const when=date?fmtDate(date,{weekday:'long',month:'short',day:'numeric'}):'Every '+DAYS_LONG[wd];
+ return `${sessionHeader(title,when)}
+ ${soc?'<p class="caution">Soccer the next day — leg-heavy options are flagged and left out of the suggestions.</p>':''}
+ <div class="mhead" style="margin-top:4px">Suggested for ${DAYS_LONG[wd]}</div>${itemsRows(sug,'pickSel',{soc,cur:curK})}
+ <div class="mhead">All workouts</div><div class="filters">${LIB_CATS.map(([v,l])=>`<button class="chip ${P.cat===v?'on':''}" data-a="pickCat" data-v="${v}">${l}</button>`).join('')}</div>
+ ${libSection(P.cat||'emom','pickSel',{soc,cur:curK})}`}
+const segList=segs=>`<ul class="mini" style="margin-top:0">${segs.map(s=>`<li><span>${esc(s.label)}${s.note?` <small class="muted">· ${esc(s.note)}</small>`:''}</span><b>${esc(segLen(s))}</b></li>`).join('')}</ul>`;
+const kvList=list=>list.map(m=>`<div class="kv"><span>${esc(m.n)}</span><b>${esc(m.d)}</b></div>`).join('');
+function viewDetail(){const it=S.detail,f=info(it);let body='';
+ if(it.kind==='strength'){const p=STRENGTH[it.ref];body=`<section class="card"><ul class="mini" style="margin:0">${p.ex.map(x=>`<li><span>${esc(x.name)}<small class="muted" style="display:block;font-size:13px">${esc(x.cue)}</small></span><b>${x.sets} × ${esc(x.reps)}</b></li>`).join('')}</ul></section>`}
+ else if(it.kind==='emom'){const e=EMOMS[it.ref];body=`<section class="card">${e.focus?`<p class="muted small" style="margin-top:0">${esc(e.focus)}</p>`:''}<ul class="mini" style="margin-top:0">${e.st.map((s,i)=>`<li><span>Min ${i+1} · ${esc(s.name)}</span><b>${esc(s.target)}</b></li>`).join('')}<li><span>Finisher</span><b>${esc(e.finisher||(e.original?'None prescribed':'—'))}</b></li></ul></section><section class="card"><p class="small muted" style="margin:0">${esc(e.original?EMOM_RULES_ORIG+' '+EMOM_HOWTO_ORIG:EMOM_RULES_V2)}</p></section>`}
+ else if(it.kind==='run'){const r=RUNS[it.ref]||RUNS.easy;
+  if(r.id==='tempo'){const t=ivGet(it.tpl);body=`<section class="card"><p class="muted small" style="margin-top:0">${esc(r.desc)}</p>${t?segList(ivSegs(t)):''}</section>${t?`<div class="btn-row" style="margin-bottom:8px"><button class="btn ghost sm" data-a="ivNew" data-from="${esc(t.id)}">${t.starter?'Customize a copy':'Edit structure'}</button></div>`:''}`}
+  else{const def=(S.meta.runDefaults||{})[r.id]||{};body=`<section class="card"><p class="muted small" style="margin-top:0">${esc(r.desc)}</p><label class="lbl">Default target <span class="muted">· optional, prefilled when you start</span></label><div class="grid2"><input type="text" inputmode="decimal" data-in="rdef" data-r="${r.id}" data-k="dur" value="${esc(def.dur??'')}" placeholder="Minutes" aria-label="Default minutes"><input type="text" inputmode="decimal" data-in="rdef" data-r="${r.id}" data-k="dist" value="${esc(def.dist??'')}" placeholder="Distance (${prefUnit()})" aria-label="Default distance"></div><p class="muted small" style="margin-bottom:0">Logs distance, time, average pace, optional heart rate and notes.</p></section>`}}
+ else if(it.kind==='surf')body=`<section class="card"><p class="muted small" style="margin-top:0">Logs duration, intensity, conditions and notes. Optional 10-min mobility:</p>${kvList(MOBILITY)}</section>`;
+ else if(it.kind==='soccer')body=`<section class="card"><p class="muted small" style="margin-top:0">Logs duration, intensity and notes. Dynamic warm-up (~10 min):</p>${kvList(WARMUP)}</section>`;
+ else if(it.kind==='recovery')body=`<section class="card"><p class="muted small" style="margin-top:0">Optional — never counted as missed. Rest, mobility, an easy walk or ride, or a light EMOM.</p>${it.ref==='mobility'?kvList(MOBILITY):''}</section>`;
+ else body='<section class="card"><p class="muted small" style="margin:0">Climbing, hiking, biking or anything else. Logs duration, intensity and notes.</p></section>';
+ return `${sessionHeader(f.name,f.sub)}${f.tag?`<p style="margin:-6px 0 12px"><span class="pill ${f.tag==='Original'?'ok':''}">${esc(f.tag)}</span></p>`:''}${body}
+ <button class="btn primary full big" data-a="detStart">${['strength','emom','run'].includes(it.kind)?'Start now':'Log it now'}</button>
+ <button class="btn ghost full" data-a="detSched">Add to a day…</button>`}
+const ivPrev=()=>{const v=S.iv,segs=ivSegs(v);return segs.length?`<p class="muted small" style="margin-top:0">${esc(ivSummary(v))}</p>${segList(segs)}`:'<p class="muted small" style="margin:0">Add a work interval to see the structure.</p>'};
+function viewIv(){const v=S.iv,U=['min','sec','m','km','mi'];
+ const sel=k=>`<select data-in="iv" data-k="${k}" aria-label="Unit">${U.map(u=>`<option value="${u}" ${v[k]===u?'selected':''}>${UNIT_L[u]}</option>`).join('')}</select>`;
+ const inp=(k,ph,mode='decimal')=>`<input type="text" inputmode="${mode}" data-in="iv" data-k="${k}" value="${esc(v[k]??'')}" placeholder="${esc(ph)}" aria-label="${esc(ph)}">`;
+ return `${sessionHeader(v.id?'Edit interval structure':'New interval structure','Saved structures appear under Running')}
+ <section class="card"><label class="lbl">Name</label><input type="text" data-in="iv" data-k="name" value="${esc(v.name||'')}" placeholder="e.g. 5 × 1 km">
+ <label class="lbl">Warm-up (minutes)</label>${inp('warm','e.g. 10')}
+ <label class="lbl">Work intervals</label><div class="grid3 lblrow"><span>Reps</span><span>Length</span><span>Unit</span></div><div class="grid3">${inp('reps','e.g. 5','numeric')}${inp('work','e.g. 3')}${sel('workUnit')}</div>
+ <input type="text" style="margin-top:8px" data-in="iv" data-k="workNote" value="${esc(v.workNote||'')}" placeholder="Effort — e.g. tempo, 5K pace">
+ <label class="lbl">Recovery between reps</label><div class="grid2">${inp('rec','e.g. 2')}${sel('recUnit')}</div>
+ <input type="text" style="margin-top:8px" data-in="iv" data-k="recNote" value="${esc(v.recNote||'')}" placeholder="e.g. easy jog, walk">
+ <label class="lbl">Cool-down (minutes)</label>${inp('cool','e.g. 10')}</section>
+ <section class="card"><h3>Preview</h3><div id="iv-prev">${ivPrev()}</div></section>
+ <button class="btn primary full big" data-a="ivSave">Save structure</button>
+ ${v.id?'<button class="btn danger full" data-a="ivDel">Delete structure</button>':''}`}
+function viewSession(){const k=S.draft.kind;return k==='strength'?viewStrength():k==='emom'?viewEmom():k==='run'?viewRun():k==='surf'?viewSurf():k==='soccer'?viewSoccer():k==='recovery'?viewRecovery():viewActivity()}
 
 function logSub(l){const p=[];
  if(l.category==='strength'){p.push(`${doneSets(l)} sets`);if(l.durationMin)p.push(l.durationMin+' min')}
+ else if(l.category==='run'){const u=l.distUnit||'mi';if(num(l.distance))p.push(`${num(l.distance)} ${u}`);if(l.durationSec)p.push(fmtHMS(l.durationSec));if(l.paceSec)p.push(fmtPace(l.paceSec,u));if(num(l.hr))p.push(num(l.hr)+' bpm')}
  else if(l.rounds){p.push(`${l.roundsCompleted}/${l.rounds} rounds`)}
  else if(l.category==='emom'){p.push(`${doneSets(l)} rounds logged`)}
  else{if(num(l.duration))p.push(num(l.duration)+' min');if(l.intensity&&l.category!=='recovery')p.push(cap(l.intensity))}
  return p.join(' · ')}
 function logDetails(l){let h='';
  if(l.exercises&&l.exercises.length)h+=l.exercises.map(e=>{const d=(e.sets||[]).filter(s=>s.done);return `<div class="xr"><b>${esc(e.name)}${(e.sets||[]).some(s=>s.pr)?' <span class="pill warm">PR</span>':''}</b><span>${d.length?d.map(s=>esc(fmtSet(e.kind||'load',s))).join(' · '):'No sets checked'}${e.notes?` — ${esc(e.notes)}`:''}</span></div>`}).join('');
- if(l.stations)h+=l.stations.map(s=>`<div class="xr"><b>${esc(s.name)} <span class="muted">· ${esc(s.target)}</span></b><span>${s.done.filter(Boolean).length}/${s.done.length} minutes${s.load!==''&&s.load!=null?` · ${esc(s.load)} lb`:''}</span></div>`).join('');
- const kv=[];if(l.bw)kv.push(['Bodyweight',l.bw+' lb']);if(l.timerSec)kv.push(['Timer',mmss(l.timerSec)]);if(l.conditions||(l.tags&&l.tags.length))kv.push(['Conditions',[...(l.tags||[]),l.conditions].filter(Boolean).join(', ')]);
+ if(l.stations)h+=l.stations.map(s=>`<div class="xr"><b>${esc(s.name)} <span class="muted">· ${esc(s.target)}</span></b><span>${(s.done||[]).filter(Boolean).length}/${(s.done||[]).length} minutes${s.load!==''&&s.load!=null?` · ${esc(s.load)} ${esc(unitTxt(s.unit))}`:''}</span></div>`).join('');
+ const kv=[];
+ if(l.category==='run'){const u=l.distUnit||'mi';kv.push(['Run type',(RUNS[l.runType]||{}).name||'Run']);if(num(l.distance))kv.push(['Distance',`${num(l.distance)} ${u}`]);if(l.durationSec)kv.push(['Time',fmtHMS(l.durationSec)]);if(l.paceSec)kv.push(['Average pace',fmtPace(l.paceSec,u)]);if(num(l.hr))kv.push(['Average heart rate',num(l.hr)+' bpm']);if(l.structure)kv.push(['Structure',ivSummary(l.structure)]);if(l.intervals)kv.push(['Work intervals',`${l.intervalsDone??'—'}/${l.intervals}`]);if(l.target)kv.push(['Target',[l.target.dur?l.target.dur+' min':'',l.target.dist?l.target.dist+' '+(l.target.unit||u):''].filter(Boolean).join(' · ')])}
+ if(l.finisher)kv.push(['Finisher',`${l.finisherDone?'Done':'Not done'} · ${l.finisher}`]);
+ if(l.bw)kv.push(['Bodyweight',l.bw+' lb']);if(l.timerSec)kv.push(['Timer',fmtHMS(l.timerSec)]);if(l.conditions||(l.tags&&l.tags.length))kv.push(['Conditions',[...(l.tags||[]),l.conditions].filter(Boolean).join(', ')]);
  if(l.mobilityDone!=null)kv.push(['Mobility',`${l.mobilityDone}/${MOBILITY.length} drills`]);if(l.warmupDone!=null)kv.push(['Warm-up',`${l.warmupDone}/${WARMUP.length} drills`]);if(l.warmup)kv.push(['Warm-up','Done']);
  if(l.status&&l.status!=='completed')kv.push(['Status',l.status==='partial'?'Partial / cut short':'Skipped']);if(l.program==='v1')kv.push(['Program','Previous program']);
  h+=kv.map(([a,b])=>`<div class="kv"><span>${a}</span><b>${esc(b)}</b></div>`).join('');
  h+=`<p class="muted" style="margin:10px 0">${l.notes?esc(l.notes):'No notes'}</p><button class="btn sm danger" data-a="del" data-id="${esc(l.id)}">Delete entry</button>`;return h}
-function viewHistory(){const f=S.hist;const fl=[['all','All'],['strength','Strength'],['emom','EMOM'],['surf','Surf'],['soccer','Soccer'],['recovery','Recovery'],['activity','Other']];
+function viewHistory(){const f=S.hist;const fl=[['all','All'],['strength','Strength'],['emom','EMOM'],['run','Running'],['surf','Surf'],['soccer','Soccer'],['recovery','Recovery'],['activity','Other']];
  const logs=S.logs.filter(l=>f==='all'||l.category===f).sort(sortDesc);let lastMonth='';
  const rows=logs.slice(0,S.histN).map(l=>{const m=fmtDate(l.date,{month:'long',year:'numeric'});const head=m!==lastMonth?`<div class="mhead">${esc(m)}</div>`:'';lastMonth=m;const c=CATS[l.category]||CATS.activity;
   return `${head}<div class="log ${S.openLog===l.id?'open':''}" id="log-${esc(l.id)}"><button class="log-h" data-a="toggleLog" data-id="${esc(l.id)}"><span class="cat" style="background:color-mix(in srgb, ${c.c} 16%, transparent);color:${c.c}">${c.i}</span><span class="log-t"><b>${esc(l.name||c.l)}</b><small>${esc(fmtDate(l.date))}${logSub(l)?' · '+esc(logSub(l)):''}</small></span>${l.status==='partial'?'<span class="pill warm">Partial</span>':l.status==='skipped'?'<span class="pill">Skipped</span>':''}</button><div class="log-b">${logDetails(l)}</div></div>`}).join('');
@@ -724,27 +1037,43 @@ function viewHistory(){const f=S.hist;const fl=[['all','All'],['strength','Stren
  ${rows||'<div class="card empty">Nothing logged here yet.</div>'}${logs.length>S.histN?`<button class="btn ghost full" data-a="more">Show more (${logs.length-S.histN})</button>`:''}
  ${backupCard()}`}
 function backupCard(){const mode={idb:'IndexedDB (this device)',local:'localStorage (this device)',memory:'Not saving — blocked'}[Store.mode];
- return `<h2>Data &amp; backup</h2><section class="card"><div class="kv"><span>Storage</span><b>${mode}</b></div><div class="kv"><span>Protected from auto-clearing</span><b>${S.persisted?'Yes':S.persisted===false?'Not granted':'Unknown'}</b></div><div class="kv"><span>Sessions stored</span><b>${S.logs.length}</b></div><div class="kv"><span>Last export</span><b>${S.meta.lastExportAt?esc(new Date(S.meta.lastExportAt).toLocaleString()):'Never'}</b></div>
- <p class="small muted">Everything is stored in this browser on this device only — there's no cloud sync. Safari can clear site data (e.g. if the app goes unused for weeks, or you clear history), so export a JSON backup regularly and keep it in Files or iCloud Drive. If you add the app to your Home Screen it gets separate storage from Safari: export here first, then import there.</p>
+ return `<h2>Data &amp; backup</h2><section class="card"><div class="kv"><span>Storage</span><b>${mode}</b></div>${Store.mode==='idb'?`<div class="kv"><span>Second copy (localStorage)</span><b>${S.mirrorOk===false?'Failing — export a backup':'OK'}</b></div>`:''}<div class="kv"><span>Protected from auto-clearing</span><b>${S.persisted?'Yes':S.persisted===false?'Not granted':'Unknown'}</b></div><div class="kv"><span>Sessions stored</span><b>${S.logs.length}</b></div><div class="kv"><span>Last saved</span><b>${S.lastSaved?esc(new Date(S.lastSaved).toLocaleTimeString()):'—'}</b></div><div class="kv"><span>Last export</span><b>${S.meta.lastExportAt?esc(new Date(S.meta.lastExportAt).toLocaleString()):'Never'}</b></div>
+ <p class="small muted">Everything is stored in this browser on this device only — there's no cloud sync, and nothing here is guaranteed permanent. Safari can clear site data (e.g. if the app goes unused for weeks, or you clear history), so export a JSON backup regularly and keep it in Files or iCloud Drive. The backup includes your sessions, schedule and interval structures. If you add the app to your Home Screen it gets separate storage from Safari: export here first, then import there.</p>
  <div class="btn-row"><button class="btn primary" data-a="export">Export JSON</button><label class="btn ghost" for="importf">Import JSON</label><input id="importf" class="vh" type="file" accept=".json,application/json" data-in="import"></div>
  <div class="btn-row" style="margin-top:8px"><button class="btn ghost sm" data-a="csv">Export CSV</button>${S.persisted?'':'<button class="btn ghost sm" data-a="persist">Request protection</button>'}</div>
+ ${S.preBackup?`<div class="kv" style="margin-top:10px;border-top:1px solid var(--line)"><span>Automatic copy taken before updating to v${APP_VERSION}</span><b>${S.preBackup.logs.length} sessions<br><button class="btn sm ghost" style="margin-top:4px" data-a="exportSnap">Export it</button></b></div>`:''}
  <p class="small muted" style="margin-bottom:0">App v${APP_VERSION}${S.meta.migratedFromV1At?` · ${S.meta.legacyCount||0} sessions imported from the previous version (original copy left untouched)`:''}</p></section>`}
 
-function viewProgress(){const mon=mondayOf(),weeks=Array.from({length:8},(_,i)=>addDays(mon,-7*(7-i))),wcs=weeks.map(weekCounts);
+function viewProgress(){const mon=mondayOf(),weeks=Array.from({length:8},(_,i)=>addDays(mon,-7*(7-i))),wcs=weeks.map(weekCounts),u=prefUnit(),sc=weekScore(weekView(mon));
+ const lbl=weeks.map(w=>fmtDate(w,{month:'numeric',day:'numeric'}));
  const cnt=k=>S.logs.filter(l=>l.category===k&&l.status!=='skipped').length;
  const surfMin=S.logs.filter(l=>l.category==='surf'&&l.status!=='skipped').reduce((a,l)=>a+(num(l.duration)||0),0);
- const last4=wcs.slice(-4).reduce((a,w)=>a+Math.min(w.strength,3),0);
+ const last4=wcs.slice(-4).reduce((a,w)=>a+Math.min(w.strength,3),0),cond4=wcs.slice(-4).filter(w=>w.emom+w.run>0).length;
+ const runs=S.logs.filter(l=>l.category==='run'&&l.status!=='skipped').sort((a,b)=>a.date.localeCompare(b.date)),runDist=runs.reduce((a,l)=>a+distIn(l,u),0);
  const keys=[];const seen=new Set();Object.values(STRENGTH).forEach(p=>p.ex.forEach(x=>{if(!seen.has(x.key)&&historyFor(x.key).length){seen.add(x.key);keys.push([x.key,x.name,x.kind])}}));
  strengthLogs().forEach(l=>(l.exercises||[]).forEach(e=>{if(!seen.has(e.key)&&e.sets.some(s=>s.done)){seen.add(e.key);keys.push([e.key,e.name+' (previous program)',e.kind||kindFor(e.key)])}}));
  if(!S.progEx||!seen.has(S.progEx))S.progEx=keys[0]?.[0]||null;const sel=keys.find(k=>k[0]===S.progEx);
+ const stat=(b,s)=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`;
  return `<h1>Progress</h1>
- <div class="stats"><div class="stat"><b>${wcs[7].score}/6</b><span>Planned sessions this week</span></div><div class="stat"><b>${Math.round(last4/12*100)}%</b><span>Strength consistency · 4 wk (${last4}/12)</span></div><div class="stat"><b>${cnt('emom')}</b><span>EMOM sessions</span></div><div class="stat"><b>${cnt('surf')}</b><span>Surf sessions · ${Math.round(surfMin/60*10)/10} h</span></div><div class="stat"><b>${cnt('soccer')}</b><span>Soccer sessions</span></div><div class="stat"><b>${cnt('strength')}</b><span>Strength sessions total</span></div></div>
- <section class="card"><h3>Weekly completion</h3><p class="muted small">Planned sessions done per week (out of 6). Recovery days and extras aren't counted as missed.</p>${barChart(wcs.map(w=>w.score),weeks.map(w=>fmtDate(w,{month:'numeric',day:'numeric'})),6)}</section>
- <section class="card"><h3>Strength consistency</h3><p class="muted small">Strength sessions per week (target 3).</p><div class="sq">${wcs.map((w,i)=>`<div><small>${esc(fmtDate(weeks[i],{month:'numeric',day:'numeric'}))}</small>${[0,1,2].map(k=>`<i class="${w.strength>k?'on':''}"></i>`).join('')}</div>`).join('')}</div></section>
+ <div class="stats">${stat(`${sc.done}/${sc.planned}`,'Planned sessions done this week')}${stat(Math.round(last4/12*100)+'%',`Strength · last 4 weeks (${last4}/12)`)}${stat(`${cond4}/4`,'Weeks with conditioning · last 4')}${stat(cnt('emom'),'EMOM sessions')}${stat(runs.length,`Runs · ${r1(runDist)} ${u}`)}${stat(cnt('surf'),`Surf sessions · ${Math.round(surfMin/60*10)/10} h`)}${stat(cnt('soccer'),'Soccer sessions')}${stat(cnt('strength'),'Strength sessions total')}</div>
+ <section class="card"><h3>Weekly activity</h3><p class="muted small">Everything you logged each week. Skipped and optional sessions never count against you.</p>${barChart(wcs.map(w=>w.total),lbl,Math.max(6,...wcs.map(w=>w.total)))}</section>
+ <section class="card"><h3>Strength consistency</h3><p class="muted small">Strength sessions per week (target 3).</p><div class="sq">${wcs.map((w,i)=>`<div><small>${esc(lbl[i])}</small>${[0,1,2].map(k=>`<i class="${w.strength>k?'on':''}"></i>`).join('')}</div>`).join('')}</div></section>
+ <section class="card"><h3>Conditioning</h3><p class="muted small">EMOMs and runs per week.</p><div class="sq">${wcs.map((w,i)=>`<div><small>${esc(lbl[i])}</small>${[0,1,2].map(k=>{const t=k<w.emom?'em':k<w.emom+w.run?'rn':'';return `<i class="${t?'on '+t:''}"></i>`}).join('')}</div>`).join('')}</div><div class="legend"><span><i style="background:var(--warm)"></i>EMOM</span><span><i style="background:var(--pink)"></i>Run</span></div></section>
+ ${runCard(runs,wcs,lbl,u)}
  <section class="card"><h3>Strength progression</h3>${keys.length?`<select data-in="progEx" aria-label="Exercise">${keys.map(([k,n])=>`<option value="${esc(k)}" ${k===S.progEx?'selected':''}>${esc(n)}</option>`).join('')}</select>${exProgress(sel)}`:'<div class="empty">Finish a strength workout to see your progression here.</div>'}</section>
  <section class="card prs"><h3>Personal records</h3>${keys.length?keys.map(([k,n,kind])=>{const b=bestFor(k,kind);if(!b.set)return'';return `<div class="kv"><span>${esc(n.replace(' (previous program)',''))}</span><b>${esc(fmtSet(kind,b.set))}${kind==='load'&&num(b.set.reps)?` <small class="muted">e1RM ${Math.round(b.score)}</small>`:''}<br><small class="muted">${esc(fmtDate(b.date,{month:'short',day:'numeric',year:'2-digit'}))}</small></b></div>`}).join(''):'<div class="empty">PRs show up after your first logged sets.</div>'}</section>
  <section class="card"><h3>Bodyweight</h3><p class="muted small">Used as the baseline for pull-ups, chin-ups and dips — those sets log added weight only.</p><div class="bwrow"><input id="bwDate" type="date" value="${localDate()}" aria-label="Date"><input id="bwVal" type="text" inputmode="decimal" placeholder="lb" aria-label="Bodyweight in pounds"><button class="btn sm primary" data-a="addBW">Add</button></div>
  ${[...(S.meta.weight||[])].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,6).map(w=>`<div class="kv"><span>${esc(fmtDate(w.date))}</span><b>${esc(w.value)} lb <button class="btn sm ghost" style="min-height:30px;padding:0 8px;margin-left:6px" data-a="delBW" data-d="${esc(w.date)}" data-v="${esc(w.value)}" aria-label="Delete weigh-in">×</button></b></div>`).join('')||'<p class="muted small">No weigh-ins yet.</p>'}</section>`}
+function runCard(runs,wcs,lbl,u){if(!runs.length)return '<section class="card"><h3>Running</h3><div class="empty">Log a run to see distance, pace and records here.</div></section>';
+ const longest=runs.reduce((b,l)=>distIn(l,u)>distIn(b,u)?l:b,runs[0]);
+ const paced=runs.filter(l=>l.durationSec&&distIn(l,u)>=1).map(l=>({l,p:l.durationSec/distIn(l,u)}));
+ const fastest=paced.length?paced.reduce((b,x)=>x.p<b.p?x:b):null;
+ const easy=paced.filter(x=>x.l.runType==='easy').slice(-16).map(x=>({d:x.l.date,y:Math.round(x.p)}));
+ const sd=d=>esc(fmtDate(d,{month:'short',day:'numeric'}));
+ return `<section class="card"><h3>Running</h3><p class="muted small">Distance per week (${u})</p>${barChart(wcs.map(w=>r1(w.dist)),lbl,Math.max(1,...wcs.map(w=>w.dist)))}
+ ${easy.length>=2?`<p class="muted small" style="margin:14px 0 0">Easy-run pace (per ${u}) — lower is faster</p>${lineChart(easy,v=>fmtHMS(v))}`:''}
+ <div style="margin-top:10px">${distIn(longest,u)?`<div class="kv"><span>Longest run</span><b>${r1(distIn(longest,u))} ${u} <small class="muted">${sd(longest.date)}</small></b></div>`:''}${fastest?`<div class="kv"><span>Fastest average pace</span><b>${fmtPace(Math.round(fastest.p),u)} <small class="muted">${sd(fastest.l.date)}</small></b></div>`:''}</div>
+ <div class="mhead">Recent runs</div>${runs.slice(-5).reverse().map(l=>`<div class="kv"><span>${sd(l.date)} · ${esc((RUNS[l.runType]||{}).short||'Run')}</span><b>${esc(logSub(l)||'—')}</b></div>`).join('')}</section>`}
 function exProgress(sel){if(!sel)return'';const[k,,kind]=sel;const h=historyFor(k);if(!h.length)return'<div class="empty">No completed sets yet.</div>';
  const anyW=h.some(x=>x.sets.some(s=>(num(s.weight)||0)>0));
  const metric={load:['Top weight (lb)',s=>num(s.weight)||0],bw:anyW?['Most added weight (lb)',s=>num(s.weight)||0]:['Most reps',s=>num(s.reps)||0],carry:['Heaviest carry (lb/hand)',s=>num(s.weight)||0],hold:['Longest hold (sec)',s=>num(s.secs)||0]}[kind]||['Top weight',s=>num(s.weight)||0];
@@ -753,12 +1082,12 @@ function exProgress(sel){if(!sel)return'';const[k,,kind]=sel;const h=historyFor(
 function barChart(vals,labels,max){const W=330,H=150,T=22,B=22,bw=W/vals.length,ih=H-T-B;
  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Weekly completion: ${vals.join(', ')}">${vals.map((v,i)=>{const h=Math.max(v/max*ih,v?4:0),x=i*bw+bw*.2,w=bw*.6,y=T+ih-h,last=i===vals.length-1;
   return `<rect x="${x}" y="${T}" width="${w}" height="${ih}" rx="6" style="fill:var(--s2)"/>${v?`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" style="fill:${last?'var(--ac)':'var(--ac2)'}"/>`:''}<text x="${x+w/2}" y="${y-6}" text-anchor="middle" class="cv">${v}</text><text x="${x+w/2}" y="${H-5}" text-anchor="middle" class="cl">${esc(labels[i])}</text>`}).join('')}</svg>`}
-function lineChart(pts){if(pts.length<2)return'<p class="muted small">Log this exercise in at least two sessions to see a trend.</p>';
+function lineChart(pts,fmt){if(pts.length<2)return'<p class="muted small">Log this exercise in at least two sessions to see a trend.</p>';
  const W=330,H=160,L=38,R=12,T=16,B=24;let lo=Math.min(...pts.map(p=>p.y)),hi=Math.max(...pts.map(p=>p.y));if(lo===hi){lo=Math.max(0,lo-5);hi+=5}const pd=(hi-lo)*.15;lo=Math.max(0,lo-pd);hi+=pd;
- const X=i=>L+i*(W-L-R)/(pts.length-1),Y=v=>T+(hi-v)/(hi-lo)*(H-T-B),r=v=>Math.round(v);
+ const X=i=>L+i*(W-L-R)/(pts.length-1),Y=v=>T+(hi-v)/(hi-lo)*(H-T-B),r=fmt||(v=>Math.round(v));
  const grid=[hi,(hi+lo)/2,lo].map(v=>`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" style="stroke:var(--line)"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end" class="cl">${r(v)}</text>`).join('');
  const path=pts.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(p.y).toFixed(1)}`).join(' ');const lp=pts[pts.length-1];
- return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Trend from ${pts[0].y} to ${lp.y}">${grid}<path d="${path}" fill="none" style="stroke:var(--ac)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${pts.map((p,i)=>`<circle cx="${X(i)}" cy="${Y(p.y)}" r="${i===pts.length-1?4.5:3}" style="fill:${i===pts.length-1?'var(--ac)':'var(--bg)'};stroke:var(--ac)" stroke-width="2"/>`).join('')}<text x="${X(pts.length-1)}" y="${Y(lp.y)-10}" text-anchor="end" class="cv">${lp.y}</text><text x="${L}" y="${H-5}" class="cl">${esc(fmtDate(pts[0].d,{month:'short',day:'numeric'}))}</text><text x="${W-R}" y="${H-5}" text-anchor="end" class="cl">${esc(fmtDate(lp.d,{month:'short',day:'numeric'}))}</text></svg>`}
+ return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Trend from ${r(pts[0].y)} to ${r(lp.y)}">${grid}<path d="${path}" fill="none" style="stroke:var(--ac)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${pts.map((p,i)=>`<circle cx="${X(i)}" cy="${Y(p.y)}" r="${i===pts.length-1?4.5:3}" style="fill:${i===pts.length-1?'var(--ac)':'var(--bg)'};stroke:var(--ac)" stroke-width="2"/>`).join('')}<text x="${X(pts.length-1)}" y="${Y(lp.y)-10}" text-anchor="end" class="cv">${r(lp.y)}</text><text x="${L}" y="${H-5}" class="cl">${esc(fmtDate(pts[0].d,{month:'short',day:'numeric'}))}</text><text x="${W-R}" y="${H-5}" text-anchor="end" class="cl">${esc(fmtDate(lp.d,{month:'short',day:'numeric'}))}</text></svg>`}
 
 /* ---------- export / import ---------- */
 function backupObj(){return{app:'hybrid-athlete',schemaVersion:SCHEMA,appVersion:APP_VERSION,exportedAt:new Date().toISOString(),logs:S.logs,meta:{...S.meta},draft:S.draft}}
@@ -767,37 +1096,161 @@ async function deliver(name,body,type){const file=new File([body],name,{type});
  const a=document.createElement('a'),url=URL.createObjectURL(file);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);return true}
 async function exportJSON(){const ok=await deliver(`hybrid-athlete-backup-${localDate()}.json`,JSON.stringify(backupObj(),null,2),'application/json');
  if(ok){S.meta.lastExportAt=Date.now();try{await Store.putMeta('lastExportAt',S.meta.lastExportAt)}catch(e){}toast('Backup exported');render()}}
-function exportCSV(){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const rows=[['date','category','session','status','exercise_or_station','set','weight_lb','reps','seconds','completed','duration_min','intensity','notes']];
+async function exportSnapshot(){const p=S.preBackup;if(!p)return;await deliver(`hybrid-athlete-before-v${APP_VERSION}-${localDate(new Date(p.at||Date.now()))}.json`,JSON.stringify({app:'hybrid-athlete',schemaVersion:SCHEMA,appVersion:p.fromVersion,exportedAt:new Date(p.at||Date.now()).toISOString(),logs:p.logs,meta:p.meta,draft:null},null,2),'application/json')}
+function exportCSV(){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const rows=[['date','category','session','status','exercise_or_station','set','weight_or_load','reps','seconds','completed','duration_min','intensity','distance','distance_unit','avg_pace','avg_hr','notes']];
  [...S.logs].sort((a,b)=>a.date.localeCompare(b.date)).forEach(l=>{
-  if(l.exercises&&l.exercises.length)l.exercises.forEach(e=>(e.sets||[]).forEach((s,i)=>rows.push([l.date,l.category,l.name,l.status,e.name,i+1,s.weight,s.reps,s.secs,!!s.done,l.durationMin||'',l.intensity||'',l.notes])));
-  else if(l.stations)l.stations.forEach(s=>rows.push([l.date,l.category,l.name,l.status,s.name,'',s.load,s.target,'',`${s.done.filter(Boolean).length}/${s.done.length}`,Math.round((l.timerSec||0)/60),'',l.notes]));
-  else rows.push([l.date,l.category,l.name,l.status,'','','','','','',l.duration,l.intensity||'',l.notes])});
+  if(l.exercises&&l.exercises.length)l.exercises.forEach(e=>(e.sets||[]).forEach((s,i)=>rows.push([l.date,l.category,l.name,l.status,e.name,i+1,s.weight,s.reps,s.secs,!!s.done,l.durationMin||'',l.intensity||'','','','','',l.notes])));
+  else if(l.stations)l.stations.forEach(s=>rows.push([l.date,l.category,l.name,l.status,s.name,'',s.load!==''&&s.load!=null?`${s.load} ${unitTxt(s.unit)}`:'',s.target,'',`${(s.done||[]).filter(Boolean).length}/${(s.done||[]).length}`,Math.round((l.timerSec||0)/60),'','','','','',l.notes]));
+  else if(l.category==='run')rows.push([l.date,l.category,l.name,l.status,'','','','',l.durationSec||'','',l.duration,l.intensity||'',l.distance,l.distUnit||'mi',l.paceSec?fmtHMS(l.paceSec):'',l.hr,l.notes]);
+  else rows.push([l.date,l.category,l.name,l.status,'','','','','','',l.duration,l.intensity||'','','','','',l.notes])});
  deliver(`hybrid-athlete-log-${localDate()}.csv`,rows.map(r=>r.map(q).join(',')).join('\r\n'),'text/csv')}
 async function importFile(file){let d;try{d=JSON.parse(await file.text())}catch(e){toast('That file isn\'t valid JSON');return}
  if(!d||!Array.isArray(d.logs)){toast('Not a Hybrid Athlete backup');return}
- const logs=d.logs.map(upgradeLog).filter(Boolean),weight=(Array.isArray(d.meta?.weight)?d.meta.weight:Array.isArray(d.weight)?d.weight:[]).filter(w=>w&&w.date&&num(w.value)!=null);
- const c=await sheet({title:'Import backup',body:`Found <b>${logs.length}</b> sessions and <b>${weight.length}</b> weigh-ins${d.exportedAt?` (exported ${esc(new Date(d.exportedAt).toLocaleDateString())})`:''}.<br><br><b>Merge</b> keeps everything here and adds anything new. <b>Replace</b> wipes this device's data first — a safety copy of the current data is exported before replacing.`,actions:[{label:'Merge',v:'merge',cls:'primary'},{label:'Replace all data',v:'replace',cls:'danger'},{label:'Cancel',v:null}]});
- if(!c)return;const snapshot={logs:S.logs.slice(),meta:{...S.meta,weight:(S.meta.weight||[]).slice()}};let added=0;
- if(c==='replace'){if(S.logs.length)await deliver(`hybrid-athlete-before-import-${localDate()}.json`,JSON.stringify(backupObj(),null,2),'application/json');S.logs=logs;S.meta={...S.meta,weight};added=logs.length}
- else{const ids=new Set(S.logs.map(l=>l.id));logs.forEach(l=>{if(!ids.has(l.id)){S.logs.push(l);added++}});const wk=new Set((S.meta.weight||[]).map(w=>w.date+'|'+w.value));weight.forEach(w=>{if(!wk.has(w.date+'|'+w.value))S.meta.weight.push(w)})}
- try{await Store.replaceAll();okSaved();toast(c==='replace'?`Replaced with ${added} sessions`:`Imported ${added} new session${added===1?'':'s'}`)}catch(e){S.logs=snapshot.logs;S.meta=snapshot.meta;fail(e,'Import failed — your existing data was kept.')}
+ const m=d.meta&&typeof d.meta==='object'?d.meta:{};
+ const logs=d.logs.map(upgradeLog).filter(Boolean),weight=(Array.isArray(m.weight)?m.weight:Array.isArray(d.weight)?d.weight:[]).filter(w=>w&&w.date&&num(w.value)!=null);
+ const plan=Array.isArray(m.plan)&&m.plan.length===7&&m.plan.every(Array.isArray)?m.plan.map(x=>x.filter(validItem)):null;
+ const ovr=m.overrides&&typeof m.overrides==='object'&&!Array.isArray(m.overrides)?Object.fromEntries(Object.entries(m.overrides).filter(([k,v])=>/^\d{4}-\d\d-\d\d$/.test(k)&&Array.isArray(v)).map(([k,v])=>[k,v.filter(validItem)])):null;
+ const tpls=Array.isArray(m.runTemplates)?m.runTemplates.filter(t=>t&&t.id&&t.name):[];
+ const extras=[plan?'a default week':'',ovr&&Object.keys(ovr).length?Object.keys(ovr).length+' schedule days':'',tpls.length?tpls.length+' interval structure'+(tpls.length===1?'':'s'):''].filter(Boolean);
+ const c=await sheet({title:'Import backup',body:`Found <b>${logs.length}</b> sessions and <b>${weight.length}</b> weigh-ins${d.exportedAt?` (exported ${esc(new Date(d.exportedAt).toLocaleDateString())})`:''}${extras.length?`, plus ${esc(extras.join(', '))}`:''}.<br><br><b>Merge</b> keeps everything here and adds anything new. <b>Replace</b> wipes this device's data first — you'll be asked to save a safety copy of the current data before anything is replaced.`,actions:[{label:'Merge',v:'merge',cls:'primary'},{label:'Replace all data',v:'replace',cls:'danger'},{label:'Cancel',v:null}]});
+ if(!c)return;const snapshot={logs:S.logs.slice(),meta:JSON.parse(JSON.stringify(S.meta))};let added=0;
+ if(c==='replace'){
+  if(S.logs.length){const saved=await deliver(`hybrid-athlete-before-import-${localDate()}.json`,JSON.stringify(backupObj(),null,2),'application/json');
+   // previously a cancelled share sheet still went ahead and replaced everything without a copy
+   if(!saved&&!await ask('Safety copy not saved','Replace all data on this device anyway? This can\'t be undone.','Replace anyway','danger'))return}
+  S.logs=logs;S.meta={...S.meta,weight};if(plan)S.meta.plan=plan;if(ovr)S.meta.overrides=ovr;if(tpls.length)S.meta.runTemplates=tpls;if(m.runDefaults&&typeof m.runDefaults==='object')S.meta.runDefaults=m.runDefaults;if(m.prefs&&typeof m.prefs==='object')S.meta.prefs=m.prefs;added=logs.length}
+ else{const ids=new Set(S.logs.map(l=>l.id));logs.forEach(l=>{if(!ids.has(l.id)){S.logs.push(l);added++}});const wk=new Set((S.meta.weight||[]).map(w=>w.date+'|'+w.value));weight.forEach(w=>{if(!wk.has(w.date+'|'+w.value))S.meta.weight.push(w)});
+  if(plan&&!S.meta.plan)S.meta.plan=plan;
+  if(ovr){const o={...(S.meta.overrides||{})};Object.entries(ovr).forEach(([k,v])=>{if(!Array.isArray(o[k]))o[k]=v});S.meta.overrides=o}
+  if(tpls.length){const have=new Set(ivAll().map(t=>t.id));S.meta.runTemplates=[...(S.meta.runTemplates||[]),...tpls.filter(t=>!have.has(t.id))]}
+  if(m.runDefaults&&!S.meta.runDefaults)S.meta.runDefaults=m.runDefaults}
+ try{await Store.replaceAll();okSaved();toast(c==='replace'?`Replaced with ${added} sessions`:`Imported ${added} new session${added===1?'':'s'}`)}catch(e){S.logs=snapshot.logs;S.meta=snapshot.meta;try{mirror()}catch(_){}fail(e,'Import failed — your existing data was kept.')}
  render()}
 
 /* ---------- nav / render ---------- */
-const ICONS={dash:'<path d="M3.5 10.5 12 4l8.5 6.5V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/>',work:'<path d="M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5M6.5 12h11"/>',hist:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',prog:'<path d="M4 20h16M7 16.5v-4M12 16.5V7M17 16.5v-7"/>'};
-function renderNav(){const t=[['dash','Dashboard'],['work','Workouts'],['hist','History'],['prog','Progress']];
- $('#nav').innerHTML=`<div class="in">${t.map(([id,l])=>`<button class="${S.tab===id?'on':''}" data-a="tab" data-t="${id}" aria-current="${S.tab===id?'page':'false'}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[id]}</svg>${l}${id==='work'&&S.draft?'<span class="dot"></span>':''}</button>`).join('')}</div>`}
-function render(){renderNav();let h;
- if(S.tab==='dash')h=viewDash();else if(S.tab==='work')h=S.view==='session'&&S.draft?viewSession():viewWorkouts();else if(S.tab==='hist')h=viewHistory();else h=viewProgress();
+const ICONS={dash:'<path d="M3.5 10.5 12 4l8.5 6.5V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/>',week:'<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8.5 3v4M15.5 3v4"/>',lib:'<path d="M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5M6.5 12h11"/>',hist:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',prog:'<path d="M4 20h16M7 16.5v-4M12 16.5V7M17 16.5v-7"/>'};
+function renderNav(){const t=[['dash','Today'],['week','Week'],['lib','Library'],['hist','History'],['prog','Progress']];
+ $('#nav').innerHTML=`<div class="in">${t.map(([id,l])=>`<button class="${S.tab===id?'on':''}" data-a="tab" data-t="${id}" aria-current="${S.tab===id?'page':'false'}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[id]}</svg>${l}${id==='dash'&&S.draft&&S.view!=='session'?'<span class="dot"></span>':''}</button>`).join('')}</div>`}
+function render(){renderNav();let h;const v=S.view;
+ if(v==='session'&&S.draft)h=viewSession();
+ else if(v==='pick'&&S.pick)h=viewPick();
+ else if(v==='detail'&&S.detail)h=viewDetail();
+ else if(v==='plan')h=viewPlan();
+ else if(v==='iv'&&S.iv)h=viewIv();
+ else{S.view=null;h=S.tab==='week'?viewWeek():S.tab==='lib'?viewLib():S.tab==='hist'?viewHistory():S.tab==='prog'?viewProgress():viewDash()}
  $('#app').innerHTML=banner()+h;renderRest()}
+function go(view){S.view=view||null;scrollTo(0,0);render()}
+
+/* ---------- schedule actions ---------- */
+function startItem(date,idx){const it=planFor(date)[idx];if(!it)return;
+ if(it.kind==='cond'){S.pick={mode:'replace',date,idx,cat:'emom',start:true,back:S.view};go('pick');return}
+ openSession(it.kind,it.ref||null,startDate(date),{tpl:it.tpl,rt:it.ref})}
+async function confirmLegs(item,soc){const f=info(item);return !(f.legs&&soc)||await ask('Soccer the next day',`${f.short} is heavy on the legs. Schedule it anyway?`,'Schedule anyway')}
+async function pickApply(item){const P=S.pick;if(!P)return;item=cleanBase(item);
+ if(!await confirmLegs(item,P.date?nextHasSoccer(P.date):defNextHasSoccer(P.wd)))return;let ok;
+ if(P.mode==='replace'||P.mode==='add'){const a=planFor(P.date);
+  if(P.mode==='replace'&&a[P.idx])a[P.idx]={...item,...(a[P.idx].optional?{optional:true}:{})};else a.push({...item,added:true});ok=await setDay(P.date,a)}
+ else{const w=defaultWeek().map(d=>d.map(x=>({...x})));if(P.mode==='defReplace'&&w[P.wd][P.idx])w[P.wd][P.idx]={...item,...(w[P.wd][P.idx].optional?{optional:true}:{})};else w[P.wd].push(item);ok=await setDefaultWeek(w)}
+ if(!ok)return;const back=P.back||null;S.pick=null;
+ if(P.start&&item.kind!=='cond'){S.view=back;return openSession(item.kind,item.ref||null,startDate(P.date),{tpl:item.tpl,rt:item.ref})}
+ toast(P.mode==='add'||P.mode==='defAdd'?'Added':'Updated');go(back)}
+async function itemMenu(date,idx){const d=weekView(mondayOf(date)).find(x=>x.date===date),it=d&&d.items.find(x=>x.idx===idx);if(!it)return;const f=info(it),A=[];
+ if(it.st==='done')A.push({label:'View in history',v:'log',cls:'primary'},{label:'Log another',v:'start'});
+ else if(it.st==='active')A.push({label:'Resume',v:'resume',cls:'warm'});
+ else if(!it.skipped)A.push({label:startLabel(it),v:'start',cls:'primary'});
+ A.push({label:'Change workout',v:'change'});
+ if(!it.log)A.push({label:'Move to another day',v:'move'});
+ if(it.skipped)A.push({label:'Undo skip',v:'unskip'});else if(!it.log)A.push({label:'Skip (no penalty)',v:'skip'});
+ if(it.kind!=='cond')A.push({label:'Workout details',v:'detail'});
+ A.push({label:'Remove from this day',v:'remove',cls:'danger'},{label:'Cancel',v:null});
+ const c=await sheet({title:f.short,body:esc(fmtDate(date,{weekday:'long',month:'short',day:'numeric'}))+(it.optional?' · optional':'')+(it.log?' · logged sessions are never deleted from here':''),actions:A});
+ if(!c)return;const a=planFor(date);
+ if(c==='log')return ACT.openLog({id:it.log.id});
+ if(c==='resume')return go('session');
+ if(c==='start')return startItem(date,idx);
+ if(c==='change')return ACT.change({date,idx:String(idx)});
+ if(c==='detail'){S.detail=cleanBase(it);return go('detail')}
+ if(c==='move')return moveMenu(date,idx);
+ if(c==='skip'||c==='unskip'){if(!a[idx])return;if(c==='skip')a[idx].skipped=true;else delete a[idx].skipped;if(await setDay(date,a))toast(c==='skip'?'Skipped — no penalty':'Back on the plan');return render()}
+ if(c==='remove'){a.splice(idx,1);if(await setDay(date,a))toast('Removed from this day');render()}}
+async function moveMenu(date,idx){const mon=mondayOf(date),today=localDate();
+ const opts=DAYS.map((_,i)=>addDays(mon,i)).filter(ds=>ds!==date).map(ds=>({label:`${DAYS_LONG[wdOf(ds)]} ${fmtDate(ds,{day:'numeric'})}${ds===today?' (today)':''} — ${planFor(ds).filter(x=>!x.skipped).map(x=>info(x).short).join(', ')||'rest'}`,v:ds}));
+ const to=await sheet({title:'Move to…',actions:[...opts,{label:'Cancel',v:null}]});if(!to)return;
+ const a=planFor(date),[it]=a.splice(idx,1);if(!it)return;
+ if(!await confirmLegs(it,nextHasSoccer(to)))return;
+ const b=planFor(to);b.push({...cleanBase(it),...(it.optional?{optional:true}:{}),added:true});
+ if(await setDays({[date]:a,[to]:b}))toast(`Moved to ${fmtDate(to,{weekday:'long'})}`);render()}
+async function dayMenu(date){const ch=hasOverride(date),A=[{label:'Add a workout',v:'add',cls:'primary'},{label:'Make it a recovery day',v:'rec'}];if(ch)A.push({label:'Reset to default plan',v:'reset'});A.push({label:'Cancel',v:null});
+ const c=await sheet({title:fmtDate(date,{weekday:'long',month:'short',day:'numeric'}),body:ch?'You changed this day. Resetting brings back your default plan. Logged sessions are never affected.':'',actions:A});
+ if(c==='add')ACT.addTo({date});else if(c==='rec')markRecovery(date);else if(c==='reset'){if(await resetDay(date))toast('Day reset to default');render()}}
+async function markRecovery(date){const d=weekView(mondayOf(date)).find(x=>x.date===date);
+ const a=planFor(date).map((it,i)=>{const v=d&&d.items[i];if(v&&!v.log&&it.kind!=='recovery')it.skipped=true;return it});
+ if(!a.some(x=>x.kind==='recovery'&&!x.skipped))a.push({kind:'recovery',added:true});
+ if(await setDay(date,a))toast('Recovery day — planned sessions skipped, no penalty');render()}
+async function defMenu(wd,idx){const w=defaultWeek().map(d=>d.map(x=>({...x}))),it=w[wd]&&w[wd][idx];if(!it)return;
+ const c=await sheet({title:info(it).short,body:'Default for every '+DAYS_LONG[wd],actions:[{label:'Change',v:'change',cls:'primary'},{label:it.optional?'Make it planned':'Make it optional',v:'opt'},{label:'Remove',v:'rm',cls:'danger'},{label:'Cancel',v:null}]});
+ if(c==='change'){S.pick={mode:'defReplace',wd,idx,cat:pickCatFor(it),back:'plan'};return go('pick')}
+ if(c==='opt'){if(it.optional)delete it.optional;else it.optional=true}else if(c==='rm')w[wd].splice(idx,1);else return;
+ if(await setDefaultWeek(w))toast('Default week saved');render()}
+async function saveWeekAsDefault(mon){if(!await ask('Save this week as your default?','Weeks you haven\'t customized will start from this plan (skipped items left out). Past weeks and logged sessions don\'t change.','Save as default'))return;
+ if(await setDefaultWeek(DAYS.map((_,i)=>planFor(addDays(mon,i)).filter(x=>!x.skipped))))toast('Default week saved');render()}
+async function scheduleItem(item){const t=localDate(),opts=Array.from({length:7},(_,i)=>addDays(t,i)).map((ds,i)=>({label:`${i===0?'Today':fmtDate(ds)} — ${planFor(ds).filter(x=>!x.skipped).map(x=>info(x).short).join(', ')||'rest'}`,v:ds}));
+ const ds=await sheet({title:'Add '+info(item).short+' to…',actions:[...opts,{label:'Cancel',v:null}]});if(!ds)return;
+ if(!await confirmLegs(item,nextHasSoccer(ds)))return;
+ const a=planFor(ds),ci=['emom','run'].includes(item.kind)?a.findIndex(x=>x.kind==='cond'&&!x.skipped):-1;
+ if(ci>=0)a[ci]={...cleanBase(item),...(a[ci].optional?{optional:true}:{})};else a.push({...cleanBase(item),added:true});
+ if(await setDay(ds,a))toast(`${ci>=0?'Set as conditioning for':'Added to'} ${ds===t?'today':fmtDate(ds,{weekday:'long'})}`);render()}
 
 /* ---------- events ---------- */
 const ACT={
- tab:D=>{if(S.tab===D.t&&D.t==='work'&&S.view==='session'){S.view=null}S.tab=D.t;scrollTo(0,0);render()},
- start:D=>openSession(D.k,D.r||null,localDate()),
- openDay:D=>{const p=weekPlan()[+D.i];if(p.log&&!draftMatches(p)){S.tab='hist';S.hist='all';S.openLog=p.log.id;render();const el=$('#log-'+CSS.escape(p.log.id));if(el)el.scrollIntoView({block:'center'});return}const today=localDate();openSession(p.kind,p.kind==='emom'?suggestedEmom(p.date):p.ref||null,p.date<today?p.date:today)},
- resume:()=>{S.tab='work';S.view='session';scrollTo(0,0);render()},
- back:()=>{S.view=null;S.tab='work';scrollTo(0,0);render()},
+ tab:D=>{S.tab=D.t;if(D.t==='week')S.weekMon=mondayOf();go(null)},
+ start:D=>openSession(D.k,D.r||null,localDate(),{tpl:D.t||null,rt:D.r}),
+ openDay:D=>{S.tab='week';S.weekMon=mondayOf(D.date);S.view=null;render();const el=document.getElementById('day-'+D.date);if(el)el.scrollIntoView({block:'start'})},
+ resume:()=>go('session'),
+ back:()=>{if(S.view==='pick'){const b=S.pick&&S.pick.back;S.pick=null;go(b)}else if(S.view==='iv'){const b=S.ivBack;S.iv=null;go(b==='iv'?null:b)}else go(null)},
+ wkNav:D=>{S.weekMon=+D.v?addDays(S.weekMon||mondayOf(),7*(+D.v)):mondayOf();scrollTo(0,0);render()},
+ itemMenu:D=>itemMenu(D.date,+D.idx),
+ dayMenu:D=>dayMenu(D.date),
+ startItem:D=>startItem(D.date,+D.idx),
+ change:D=>{const it=planFor(D.date)[+D.idx];S.pick={mode:'replace',date:D.date,idx:+D.idx,cat:pickCatFor(it),back:S.view,start:!!it&&it.kind==='cond'&&D.date===localDate()};go('pick')},
+ skip:async D=>{const a=planFor(D.date);if(!a[+D.idx])return;a[+D.idx].skipped=true;if(await setDay(D.date,a))toast('Skipped — no penalty');render()},
+ addTo:D=>{S.pick={mode:'add',date:D.date,cat:'emom',back:S.view};go('pick')},
+ markRec:D=>markRecovery(D.date),
+ choose:async D=>{const it=iparse(D.key),a=planFor(D.date),i=+D.idx;if(a[i])a[i]={...it,...(a[i].optional?{optional:true}:{})};else a.push({...it,added:true});if(!await setDay(D.date,a))return;openSession(it.kind,it.ref||null,startDate(D.date),{tpl:it.tpl,rt:it.ref})},
+ pickCat:D=>{if(S.pick){S.pick.cat=D.v;render()}},
+ pickSel:D=>pickApply(iparse(D.key)),
+ libCat:D=>{S.libCat=D.v;render()},
+ libOpen:D=>{S.detail=iparse(D.key);go('detail')},
+ detStart:()=>{const it=S.detail;if(it)openSession(it.kind,it.ref||null,localDate(),{tpl:it.tpl,rt:it.ref})},
+ detSched:()=>{if(S.detail)scheduleItem(S.detail)},
+ editDefault:()=>go('plan'),
+ defAdd:D=>{S.pick={mode:'defAdd',wd:+D.wd,cat:'emom',back:'plan'};go('pick')},
+ defMenu:D=>defMenu(+D.wd,+D.idx),
+ defRestore:async()=>{if(!await ask('Restore the original schedule?','Mon Strength A · Tue Strength B · Wed conditioning (your pick) · Thu Strength C · Fri surf · Sat recovery · Sun soccer. Days you changed individually keep their changes.','Restore'))return;if(await setDefaultWeek(DEFAULT_WEEK))toast('Original schedule restored');render()},
+ saveDefault:D=>saveWeekAsDefault(D.mon),
+ openLog:D=>{S.tab='hist';S.hist='all';S.view=null;S.openLog=D.id;const i=[...S.logs].sort(sortDesc).findIndex(l=>l.id===D.id);if(i>=S.histN)S.histN=i+10;render();const el=$('#log-'+CSS.escape(D.id));if(el)el.scrollIntoView({block:'center'})},
+ emFin:()=>{S.draft.emom.finisher=!S.draft.emom.finisher;touch();render()},
+ runTpl:D=>{const d=S.draft;if(!d||d.timer.start)return;const t=ivGet(D.v);if(!t)return;d.tpl=t.id;d.structure={...t};touch();render()},
+ runDefault:async()=>{const d=S.draft;S.meta.runDefaults={...(S.meta.runDefaults||{}),[d.ref]:{dur:num(d.f.tDur),dist:num(d.f.tDist)}};if(await saveMeta('runDefaults'))toast('Default target saved')},
+ rtStart:()=>{const t=S.draft.timer,n=Date.now();unlockAudio();Object.assign(t,{start:n,segStart:n,pausedAt:null,paused:0,idx:0,done:false});touch();wake(true);beep(1046,.3);refreshRun()},
+ rtPause:()=>{const t=S.draft.timer;if(!t.pausedAt){t.pausedAt=Date.now();touch();wake(false);refreshRun()}},
+ rtResume:()=>{const t=S.draft.timer;unlockAudio();if(t.pausedAt){const dl=Date.now()-t.pausedAt;t.paused+=dl;t.segStart+=dl;t.pausedAt=null;touch();wake(true);refreshRun()}},
+ rtNext:()=>{const d=S.draft,t=d.timer,segs=ivSegs(d.structure);if(!t.start||t.done)return;const n=t.pausedAt||Date.now();t.idx++;t.segStart=n;
+  if(t.idx>=segs.length){t.done=true;t.pausedAt=n;rtFinish(d,true);touch();render();return}beep(segs[t.idx].type==='work'?1175:784,.3);touch();refreshRun()},
+ rtReset:async()=>{if(!await ask('Reset the run timer?','Your result fields are kept.','Reset','danger'))return;S.draft.timer={start:null,pausedAt:null,paused:0,idx:0,segStart:null,done:false};touch();wake(false);refreshRun()},
+ ivNew:D=>{const src=ivGet(D&&D.from);S.iv=src?{...src,id:src.starter?null:src.id,starter:false,name:src.starter?src.name+' (mine)':src.name}:{id:null,name:'',warm:'',reps:'',work:'',workUnit:'min',workNote:'',rec:'',recUnit:'min',recNote:'',cool:''};S.ivBack=S.view;go('iv')},
+ ivSave:async()=>{const v=S.iv;if(!(num(v.work)>0)){toast('Add a work interval length');return}
+  const t={id:v.id||'u'+uid(),name:String(v.name||'').trim().slice(0,60)||'Intervals',warm:num(v.warm)??0,reps:Math.max(1,Math.round(num(v.reps)||1)),work:num(v.work),workUnit:v.workUnit||'min',workNote:String(v.workNote||'').trim(),rec:num(v.rec)??0,recUnit:v.recUnit||'min',recNote:String(v.recNote||'').trim(),cool:num(v.cool)??0};
+  const before=S.meta.runTemplates,list=(Array.isArray(before)?before:[]).slice(),i=list.findIndex(x=>x.id===t.id);if(i>=0)list[i]=t;else list.unshift(t);S.meta.runTemplates=list;
+  if(!await saveMeta('runTemplates','Couldn\'t save the interval structure.')){S.meta.runTemplates=before;return}
+  const b=S.ivBack;S.iv=null;
+  if(b==='session'&&S.draft&&S.draft.kind==='run'&&!S.draft.timer.start){S.draft.tpl=t.id;S.draft.structure={...t};touch()}
+  if(b==='detail')S.detail={kind:'run',ref:'tempo',tpl:t.id};
+  toast('Interval structure saved');go(b)},
+ ivDel:async()=>{const v=S.iv;if(!v||!v.id)return;if(!await ask('Delete this structure?','Past runs keep their own copy of it. Days it was scheduled on fall back to a generic tempo/interval run.','Delete','danger'))return;
+  const before=S.meta.runTemplates;S.meta.runTemplates=(before||[]).filter(x=>x.id!==v.id);if(!await saveMeta('runTemplates')){S.meta.runTemplates=before;return}
+  S.iv=null;const b=S.ivBack;if(b==='detail'&&S.detail&&S.detail.tpl===v.id)S.detail=null;toast('Structure deleted');go(b==='detail'&&!S.detail?null:b)},
+ exportSnap:()=>exportSnapshot(),
  toggleEx:D=>{const e=S.draft.ex[+D.i];e.open=!e.open;touch();const el=$('#ex-'+D.i);el.classList.toggle('open',e.open);el.querySelector('.ex-head').setAttribute('aria-expanded',e.open)},
  checkSet:D=>checkSet(+D.i,+D.j),
  addSet:D=>{const e=S.draft.ex[+D.i],l=e.sets[e.sets.length-1]||{};e.sets.push({weight:l.weight||'',reps:'',secs:'',done:false});touch();refreshEx(+D.i);updateCounter()},
@@ -833,6 +1286,8 @@ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-a]');if(
 function onField(ev){const el=ev.target,k=el.dataset&&el.dataset.in;if(!k)return;const d=S.draft;
  if(k==='import'){if(ev.type==='change'&&el.files&&el.files[0]){importFile(el.files[0]);el.value=''}return}
  if(k==='progEx'){if(ev.type==='change'){S.progEx=el.value;render()}return}
+ if(k==='iv'){if(S.iv){S.iv[el.dataset.k]=el.value;const p=$('#iv-prev');if(p)p.innerHTML=ivPrev()}return}
+ if(k==='rdef'){if(ev.type==='change'){const r=el.dataset.r,all={...(S.meta.runDefaults||{})};all[r]={...(all[r]||{}),[el.dataset.k]:num(el.value)};S.meta.runDefaults=all;saveMeta('runDefaults').then(ok=>{if(ok)toast('Default saved')})}return}
  if(!d)return;
  if(k==='date'){if(el.value)d.date=el.value}
  else if(k==='notes')d.notes=el.value;
@@ -840,33 +1295,48 @@ function onField(ev){const el=ev.target,k=el.dataset&&el.dataset.in;if(!k)return
  else if(k==='exNotes')d.ex[+el.dataset.i].notes=el.value;
  else if(k==='emLoad')d.emom.loads[el.dataset.s]=el.value;
  else if(k==='f')d.f[el.dataset.k]=el.value;
+ else if(k==='rf'){d.f[el.dataset.k]=el.value;if(['distance','tmin','tsec'].includes(el.dataset.k)){const p=$('#rpace');if(p)p.textContent=paceTxt(d)}}
  touch()}
 document.addEventListener('input',onField);document.addEventListener('change',onField);
 document.addEventListener('pointerdown',unlockAudio,{passive:true});
-document.addEventListener('visibilitychange',()=>{if(document.hidden){flushSync()}else{const t=S.draft?.emom?.timer;if(t&&t.start&&!t.pausedAt&&!t.done)wake(true);if(onEmomScreen())refreshTimer();restTick()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){flushSync()}else{const t=S.draft?.emom?.timer;if(t&&t.start&&!t.pausedAt&&!t.done)wake(true);const r=S.draft?.kind==='run'?S.draft.timer:null;if(r&&r.start&&!r.pausedAt&&!r.done)wake(true);if(onEmomScreen())refreshTimer();if(onRunScreen())refreshRun();restTick()}});
 window.addEventListener('pagehide',flushSync);
-setInterval(()=>{restTick();emTick()},250);
+setInterval(()=>{restTick();emTick();runTick()},250);
 
 /* ---------- boot ---------- */
 async function checkPersist(request){try{if(!navigator.storage||!navigator.storage.persisted)return;S.persisted=await navigator.storage.persisted();if(!S.persisted&&request&&navigator.storage.persist)S.persisted=await navigator.storage.persist()}catch(e){}}
+function mergeData(a,m){ // union of IndexedDB + mirror; never drops a session (used when the two can't be ordered)
+ const byId=new Map();[...(a.logs||[]),...(m.logs||[])].forEach(l=>{if(!l||l.id==null)return;const k=String(l.id),o=byId.get(k);if(!o||(l.updatedAt||l.createdAt||0)>(o.updatedAt||o.createdAt||0))byId.set(k,l)});
+ const meta={...(m.meta||{}),...a.meta};const wk=new Set();meta.weight=[...(a.meta.weight||[]),...((m.meta&&m.meta.weight)||[])].filter(w=>{const k=w&&w.date+'|'+w.value;if(!w||wk.has(k))return false;wk.add(k);return true});
+ const ad=a.meta.draft||null,md=m.draft||null;meta.draft=ad&&md?((md.updatedAt||0)>(ad.updatedAt||0)?md:ad):(ad||md);
+ return{logs:[...byId.values()],meta}}
 async function boot(){
  await Store.init();
  let data=null,src='';
  if(Store.mode==='idb'){try{data=await Store.loadAll()}catch(e){console.warn(e);Store.mode=lsAvailable()?'local':'memory';data=null}}
- const m=readMirror();
- if(data&&data.meta.schemaVersion){src='idb';
-  // a draft autosaved synchronously during pagehide may be newer in the mirror
-  if(m&&m.draft&&(!data.meta.draft||(m.draft.updatedAt||0)>(data.meta.draft.updatedAt||0))&&m.draft.id===(data.meta.draft?.id??m.draft.id))data.meta.draft=m.draft}
+ const m=readMirror(),idbAt=data?num(data.meta.savedAt)||0:0;if(data)delete data.meta.savedAt;
+ if(data&&data.meta.schemaVersion){
+  if(m&&idbAt&&(m.savedAt||0)>idbAt){data={logs:m.logs,meta:{...(m.meta||{}),draft:m.draft||null,preUpdateBackup:data.meta.preUpdateBackup}};src='recovered'} // IndexedDB missed the latest write
+  else if(m&&!idbAt){data=mergeData(data,m);src='merged'} // first run with write stamps: merge so nothing is lost
+  else{src='idb';
+   // a draft autosaved synchronously during pagehide may be newer in the mirror
+   if(m&&m.draft&&(!data.meta.draft||(m.draft.updatedAt||0)>(data.meta.draft.updatedAt||0))&&m.draft.id===(data.meta.draft?.id??m.draft.id))data.meta.draft=m.draft}}
  else if(m){data={logs:m.logs,meta:{...(m.meta||{}),draft:m.draft||null}};src='mirror'}
  else{data=migrateLegacy();src='legacy'}
  const draft=data.meta.draft||null;delete data.meta.draft;
+ const pre=data.meta.preUpdateBackup;delete data.meta.preUpdateBackup;S.preBackup=pre&&Array.isArray(pre.logs)?pre:null;
  S.logs=(data.logs||[]).map(upgradeLog).filter(Boolean);
  S.meta={...data.meta,schemaVersion:SCHEMA};S.meta.weight=Array.isArray(S.meta.weight)?S.meta.weight:[];
+ if(S.meta.overrides&&(typeof S.meta.overrides!=='object'||Array.isArray(S.meta.overrides)))S.meta.overrides={};
+ if(S.meta.runTemplates&&!Array.isArray(S.meta.runTemplates))S.meta.runTemplates=[];
  S.draft=validDraft(draft)?draft:null;
  if(S.draft&&S.draft.rest&&S.draft.rest.end>Date.now())S.rest=S.draft.rest;
+ // safety copy of everything, taken once before the first run of a new app version (kept in IndexedDB, exportable)
+ if(S.meta.appVersion!==APP_VERSION){if(S.logs.length&&Store.mode==='idb'){S.preBackup={fromVersion:S.meta.appVersion||'2.0.0',at:Date.now(),logs:JSON.parse(JSON.stringify(S.logs)),meta:JSON.parse(JSON.stringify(S.meta))};try{await Store.putRaw('preUpdateBackup',S.preBackup)}catch(e){console.warn(e)}}S.meta.appVersion=APP_VERSION;if(src==='idb'){try{await Store.putMeta('appVersion',APP_VERSION)}catch(e){fail(e,'Couldn\'t write to device storage.')}}}
  if(src!=='idb'){try{await Store.replaceAll();okSaved()}catch(e){fail(e,'Couldn\'t write to device storage.')}}
  if(src==='legacy'&&S.meta.migratedFromV1At)setTimeout(()=>toast(`Imported ${S.meta.legacyCount||S.logs.length} sessions from the previous version`),400);
- if(S.draft&&Date.now()-(S.draft.updatedAt||0)<3*3600e3){S.tab='work';S.view='session'}
+ if(src==='recovered')setTimeout(()=>toast('Recovered changes that hadn\'t finished saving'),400);
+ if(S.draft&&Date.now()-(S.draft.updatedAt||0)<3*3600e3)S.view='session';
  render();
  checkPersist(true).then(()=>{if(S.tab==='hist')render()});
  if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
